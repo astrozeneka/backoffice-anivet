@@ -1,0 +1,7 @@
+
+@import "~bootstrap/scss/bootstrap";
+
+
+.form-floating, select{
+  @extend .mb-3;
+}

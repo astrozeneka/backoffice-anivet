@@ -1,0 +1,48 @@
+{
+  "name": "019-vue-wp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack serve --mode development"
+  },
+  "dependencies": {
+    "@intlify/vue-i18n-loader": "^4.2.0",
+    "@popperjs/core": "^2.11.5",
+    "admin-lte": "^3.2.0",
+    "autoprefixer": "^10.4.8",
+    "bootstrap": "^5.2.0",
+    "bs-stepper": "^1.7.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "core-js": "^3.6.5",
+    "css-loader": "^6.7.1",
+    "express": "^4.18.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "jquery": "^3.6.0",
+    "postcss": "^8.4.14",
+    "postcss-loader": "^7.0.1",
+    "sass": "^1.54.2",
+    "sass-loader": "^13.0.2",
+    "serve-static": "^1.15.0",
+    "sessionstorage": "^0.1.0",
+    "style-loader": "^3.3.1",
+    "url-loader": "^4.1.1",
+    "vue": "^2.6.12",
+    "vue-i18n": "8",
+    "vue-router": "^3.4.3",
+    "webpack": "^5.74.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "babel-loader": "^8.1.0",
+    "vue-loader": "^15.9.3",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^5",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
