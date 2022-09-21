@@ -14,12 +14,27 @@ pages.forEach((page)=>{
     }))
 })
 
+let BOPages = ["login", "dashboard"]
+let BOList = []
+BOPages.forEach((page)=>{
+    BOList.push(new htmlWebpackPlugin({
+        hash: true,
+        template: './public/index.html',
+        filename: `${page}.html`,
+        chunks: [page],
+        inject: 'body'
+    }))
+})
+
 module.exports = {
     mode: "development",
     entry: {
         main: "./src/js/main.js",
         register: "./src/js/register.js",
-        adminLogin: "./src/js/adminLogin.js"
+        adminLogin: "./src/js/adminLogin.js",
+
+        login: "./src/js/login.js",
+        dashboard: "./src/js/dashboard.js"
     },
     output: {
         filename: "[name].js"
@@ -57,6 +72,7 @@ module.exports = {
     plugins: [
         new VueLoaderPlugin(),
         ...hwpList,
+        ...BOList,
         new CopyPlugin({
             patterns: [
                 { from: "./src/assets", to: "./assets"}

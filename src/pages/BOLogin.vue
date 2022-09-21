@@ -52,7 +52,7 @@ import sessionstorage from "sessionstorage";
 import SubmitButton from "../components/SubmitButton";
 
 export default {
-  name: "AdminLogin",
+  name: "BOLogin",
   components: {SubmitButton, FormField2, FormErrors},
   data() {
     return {
@@ -81,6 +81,7 @@ export default {
         contentType: "application/json",
         type: "POST",
         success: (res)=>{
+          console.log(res)
           this.requesting = false
           if(res.hasOwnProperty("errors"))
             this.fieldErrors = res.errors
