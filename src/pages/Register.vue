@@ -127,23 +127,7 @@
             :field-errors="fieldErrors.form"
         />
 
-        <button
-            v-if="!requesting"
-            type="submit"
-            class="btn btn-lg btn-primary"
-        >
-          Register
-        </button>
-        <button
-            v-else
-            type="submit"
-            class="btn btn-lg btn-primary"
-            disabled
-        >
-          <div class="spinner-border" role="status">
-            <span class="sr-only"></span>
-          </div>
-        </button>
+        <SubmitButton @click="formSubmit" :requesting="requesting"></SubmitButton>
 
       </div>
     </form>
@@ -260,10 +244,5 @@ export default {
 </script>
 
 <style>
-@import 'src/style.scss';
-</style>
-<style scoped>
-button[type=submit]{
-  width: 6.5em!important;
-}
+@import '../scss/style.scss';
 </style>

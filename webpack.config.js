@@ -2,7 +2,7 @@ const { VueLoaderPlugin } = require("vue-loader")
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 
-let pages = ["main", "register"]
+let pages = ["main", "register", "adminLogin"]
 let hwpList = []
 pages.forEach((page)=>{
     hwpList.push(new htmlWebpackPlugin({
@@ -18,7 +18,8 @@ module.exports = {
     mode: "development",
     entry: {
         main: "./src/js/main.js",
-        register: "./src/js/register.js"
+        register: "./src/js/register.js",
+        adminLogin: "./src/js/adminLogin.js"
     },
     output: {
         filename: "[name].js"
