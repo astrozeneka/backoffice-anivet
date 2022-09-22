@@ -14,41 +14,42 @@
       </a>
     </li>
     <li class="nav-item">
-      <a href="/backoffice-orders.html" class="nav-link">
+      <a href="/orders.html" class="nav-link">
         <i class="fa-solid fa-cart-shopping"></i>
         Orders
         <span class="badge badge-danger">{{ menuBadge.testOrders }}</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="/backoffice-samples.html" class="nav-link">
+      <a href="/samples.html" class="nav-link">
         <i class="fa-solid fa-flask"></i>
         Samples
+        <span class="badge badge-danger">{{ menuBadge.testSamples }}</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="/backoffice-owners.html" class="nav-link">
+      <a href="/owners.html" class="nav-link">
         <i class="fa-solid fa-user"></i>
         {{ $t('backoffice.menu.owners') }}
         <span class="badge badge-danger">{{ menuBadge.owners }}</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="/backoffice-breeders.html" class="nav-link">
+      <a href="/breeders.html" class="nav-link">
         <i class="fa-solid fa-user"></i>
         {{ $t('backoffice.menu.breeders') }}
         <span class="badge badge-danger">{{  menuBadge.breeders }}</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="/backoffice-vets.html" class="nav-link">
+      <a href="/vets.html" class="nav-link">
         <i class="fa-solid fa-user"></i>
         {{ $t('backoffice.menu.vets') }}
         <span class="badge badge-danger">{{ menuBadge.vets }}</span>
       </a>
     </li>
     <li class="nav-item">
-      <a href="/scientists.html" class="nav-link">
+      <a href="/scientist.html" class="nav-link">
         <i class="fa-solid fa-user"></i>
         Scientist
         <span class="badge badge-danger">0</span>
@@ -86,6 +87,7 @@ export default {
     return {
       menuBadge: {
         testOrders: 0,
+        testSamples: 0,
         owners: 0,
         breeders: 0,
         vets: 0
@@ -111,7 +113,7 @@ export default {
   created(){
     let token = sessionstorage.getItem("accessToken")
     let userId = sessionstorage.getItem("userId")
-    let url = vars.getAPIURL(`/api/v1/dashboard/menu-badge?token=${token}&userId=${userId}`)
+    let url = vars.getAPIURL(`/api/v1/dashboard/menu-badge`)
     $.ajax(url, {
       type: "GET",
       beforeSend: (xhr)=>{
