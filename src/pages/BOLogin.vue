@@ -76,7 +76,7 @@ export default {
       this.doFormSubmit(this.form)
     },
     doFormSubmit(data){
-      $.ajax(vars.getAPIURL("/api/v1/admin/login"), {
+      $.ajax(vars.getAPIURL("/public/login"), {
         data: JSON.stringify(data),
         contentType: "application/json",
         type: "POST",
