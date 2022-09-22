@@ -27,6 +27,7 @@ export default {
     if(token == null){
       window.location = "login.html"
     }
+    console.log("You are connected, should verify your token via the server")
   }
 }
 </script>

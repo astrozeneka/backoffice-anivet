@@ -2,51 +2,64 @@
 <template>
   <ul class="nav flex-column">
     <li class="nav-item">
-      <router-link to="/backoffice.html" class="nav-link">
-        <i class="fa-solid fa-house"></i>
-        {{ $t('backoffice.menu.activity') }}
-      </router-link>
+      <a href="/dashboard.html" class="nav-link">
+        <i class="fa-solid fa-gauge"></i>
+        Dashboard
+      </a>
     </li>
     <li class="nav-item">
-      <router-link to="/backoffice-orders.html" class="nav-link">
+      <a href="/dashboard.html" class="nav-link">
+        <i class="fa-solid fa-rss"></i>
+        Activity
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/backoffice-orders.html" class="nav-link">
         <i class="fa-solid fa-cart-shopping"></i>
         Orders
         <span class="badge badge-danger">{{ menuBadge.testOrders }}</span>
-      </router-link>
+      </a>
     </li>
     <li class="nav-item">
-      <router-link to="/backoffice-samples.html" class="nav-link">
+      <a href="/backoffice-samples.html" class="nav-link">
         <i class="fa-solid fa-flask"></i>
         Samples
-      </router-link>
+      </a>
     </li>
     <li class="nav-item">
-      <router-link to="/backoffice-owners.html" class="nav-link">
+      <a href="/backoffice-owners.html" class="nav-link">
         <i class="fa-solid fa-user"></i>
         {{ $t('backoffice.menu.owners') }}
         <span class="badge badge-danger">{{ menuBadge.owners }}</span>
-      </router-link>
+      </a>
     </li>
     <li class="nav-item">
-      <router-link to="/backoffice-breeders.html" class="nav-link">
+      <a href="/backoffice-breeders.html" class="nav-link">
         <i class="fa-solid fa-user"></i>
         {{ $t('backoffice.menu.breeders') }}
         <span class="badge badge-danger">{{  menuBadge.breeders }}</span>
-      </router-link>
+      </a>
     </li>
     <li class="nav-item">
-      <router-link to="/backoffice-vets.html" class="nav-link">
+      <a href="/backoffice-vets.html" class="nav-link">
         <i class="fa-solid fa-user"></i>
         {{ $t('backoffice.menu.vets') }}
         <span class="badge badge-danger">{{ menuBadge.vets }}</span>
-      </router-link>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/scientists.html" class="nav-link">
+        <i class="fa-solid fa-user"></i>
+        Scientist
+        <span class="badge badge-danger">0</span>
+      </a>
     </li>
 
     <li class="nav-item">
-      <router-link to="/backoffice-stats.html" class="nav-link">
+      <a href="/backoffice-stats.html" class="nav-link">
         <i class="fa-solid fa-chart-column"></i>
         {{ $t('backoffice.menu.stats') }}
-      </router-link>
+      </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#" @click="logoutButtonClick">
@@ -98,9 +111,12 @@ export default {
   created(){
     let token = sessionstorage.getItem("accessToken")
     let userId = sessionstorage.getItem("userId")
-    let url = vars.getAPIURL(`/api/v1/dashboard/menu-badge?token=${token}`)
+    let url = vars.getAPIURL(`/api/v1/dashboard/menu-badge?token=${token}&userId=${userId}`)
     $.ajax(url, {
       type: "GET",
+      beforeSend: (xhr)=>{
+        xhr.setRequestHeader('Authorization', `Bearer ${token}`)
+      },
       success: (res)=>{
         console.log(res)
         this.menuBadge = res
