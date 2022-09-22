@@ -28,6 +28,18 @@
       </a>
     </li>
     <li class="nav-item">
+      <a href="/shipping.html" class="nav-link">
+        <i class="fa-solid fa-truck"></i>
+        Shipping
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/results.html" class="nav-link">
+        <i class="fa-solid fa-vials"></i>
+        Test Results
+      </a>
+    </li>
+    <li class="nav-item">
       <a href="/owners.html" class="nav-link">
         <i class="fa-solid fa-user"></i>
         {{ $t('backoffice.menu.owners') }}
@@ -49,17 +61,23 @@
       </a>
     </li>
     <li class="nav-item">
-      <a href="/scientist.html" class="nav-link">
+      <a href="/scientists.html" class="nav-link">
         <i class="fa-solid fa-user"></i>
-        Scientist
+        Scientists
         <span class="badge badge-danger">0</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a href="/backoffice-stats.html" class="nav-link">
+      <a href="/stats.html" class="nav-link">
         <i class="fa-solid fa-chart-column"></i>
         {{ $t('backoffice.menu.stats') }}
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/settings.html">
+        <i class="fa-solid fa-gear"></i>
+        Settings
       </a>
     </li>
     <li class="nav-item">
