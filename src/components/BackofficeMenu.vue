@@ -8,7 +8,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a href="/dashboard.html" class="nav-link">
+      <a href="/activity.html" class="nav-link">
         <i class="fa-solid fa-rss"></i>
         Activity
       </a>

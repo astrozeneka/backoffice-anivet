@@ -100,7 +100,7 @@ export default {
 
     /************************
      * LOAD DATA FROM THE API
-     * GET /api/v1/dashboard?token=<token>
+     * GET /api/v1/dashboard
      ************************/
     let url = vars.getAPIURL(`/api/v1/dashboard`)
     $.ajax(url, {
