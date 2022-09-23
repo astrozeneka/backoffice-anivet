@@ -7,7 +7,7 @@
           <BackofficeMenu></BackofficeMenu>
         </div>
         <div class="col-md-9 page-content">
-          <h1>Scientists</h1>
+          <h1>Scientists <a href='/add-user.html?type=scientist' class="btn btn-outline-primary btn-sm">Add</a></h1>
           <div>
             <BaseMemberList type="scientist"></BaseMemberList>
           </div>
