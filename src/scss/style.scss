@@ -9,3 +9,9 @@
 .main.container{
   margin-top: 3em;
 }
+.page-content>div{
+  @extend .my-3;
+}
+.page-content>h1{
+  @extend .display-3;
+}

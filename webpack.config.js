@@ -15,7 +15,7 @@ pages.forEach((page)=>{
 })
 
 let BOPages = ["login", "dashboard", "activity", "orders", "samples", "shipping", "results", "owners", "breeders",
-    "vets", "scientists", "stats", "settings"]
+    "vets", "scientists", "stats", "settings", "sample-details"]
 let BOList = []
 BOPages.forEach((page)=>{
     BOList.push(new htmlWebpackPlugin({
@@ -46,7 +46,8 @@ module.exports = {
         vets: "./src/js/vets",
         scientists: "./src/js/scientists",
         stats: "./src/js/stats",
-        settings: "./src/js/settings"
+        settings: "./src/js/settings",
+        "sample-details": "./src/js/sample-details"
     },
     output: {
         filename: "[name].js"
