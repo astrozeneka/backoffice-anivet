@@ -70,7 +70,7 @@
       <a href="/scientists.html" class="nav-link">
         <i class="fa-solid fa-user"></i>
         Scientists
-        <span class="badge badge-danger">0</span>
+        <span class="badge badge-danger">{{  menuBadge.scientists }}</span>
       </a>
     </li>
 
@@ -114,7 +114,8 @@ export default {
         testSamples: 0,
         owners: 0,
         breeders: 0,
-        vets: 0
+        vets: 0,
+        scientists: 0
       }
     }
   },
