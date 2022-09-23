@@ -125,11 +125,12 @@ export default {
       window.location.reload()
     },
     reinstallDB(){
-      $.ajax(vars.getAPIURL("/api/v1/install"), {
+      $.ajax(vars.getAPIURL("/install"), {
         type: "GET",
         success: (res)=>{
           // This portion of code should be reviewed
           console.log(this.$t("backoffice.message.dbInstalled"))
+          window.location.reload()
         }
       })
     }
@@ -137,6 +138,10 @@ export default {
   created(){
     let token = sessionstorage.getItem("accessToken")
     let userId = sessionstorage.getItem("userId")
+    if(token == null){
+      window.location = "login.html"
+    }
+
     let url = vars.getAPIURL(`/api/v1/dashboard/menu-badge`)
     $.ajax(url, {
       type: "GET",
@@ -149,6 +154,7 @@ export default {
       },
       error: (err)=>{
         console.log(err)
+        // Redirect if expired
       }
     })
   }
