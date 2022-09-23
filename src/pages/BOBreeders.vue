@@ -6,10 +6,11 @@
         <div class="col-md-3">
           <BackofficeMenu></BackofficeMenu>
         </div>
-        <div class="col-md-9">
-          <p>
-            Breeders
-          </p>
+        <div class="col-md-9 page-content">
+          <h1>Breeders</h1>
+          <div>
+            <BaseMemberList type="breeder"></BaseMemberList>
+          </div>
         </div>
       </div>
     </div>
@@ -18,10 +19,11 @@
 <script>
 import TopmenuBackoffice from "../components/TopmenuBackoffice";
 import BackofficeMenu from "../components/BackofficeMenu";
+import BaseMemberList from "../components/BaseMemberList";
 
 export default {
   name: "BOBreeders",
-  components: {TopmenuBackoffice, BackofficeMenu},
+  components: {TopmenuBackoffice, BackofficeMenu, BaseMemberList},
 }
 </script>
 

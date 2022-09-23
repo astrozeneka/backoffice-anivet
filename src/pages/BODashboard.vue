@@ -113,7 +113,7 @@ export default {
         this.dashboard = res;
       },
       error: (err)=>{
-
+        console.error(err)
       }
     })
   }
