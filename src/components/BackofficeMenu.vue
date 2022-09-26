@@ -153,9 +153,11 @@ export default {
         console.log(res)
         this.menuBadge = res
       },
-      error: (err)=>{
-        console.log(err)
-        // Redirect if expired
+      error: (res)=>{
+        sessionstorage.removeItem("accessToken")
+        sessionstorage.removeItem("userId")
+        if(res.responseText == "Unauthorized HTTP")
+          window.location = "login.html"
       }
     })
   }
