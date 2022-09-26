@@ -141,6 +141,7 @@ import * as $ from 'jquery'
 import FormField2 from "../components/FormField2";
 import vars from '../utils/vars';
 import FormErrors from "../components/FormErrors";
+import SubmitButton from "../components/SubmitButton";
 
 
 export default {
@@ -190,7 +191,7 @@ export default {
       }
     }
   },
-  components: {FormField2, FormErrors},
+  components: {FormField2, FormErrors, SubmitButton},
   computed: {
     model: {
       get(){
@@ -212,21 +213,17 @@ export default {
     formSubmit(e) {
       this.requesting = true
       const form = e.currentTarget
-      if(form.checkValidity()) {
-        this.doFormSubmit(this.form)
-        this.touched = false
-      } else {
-        e.preventDefault()
-      }
+      this.doFormSubmit(this.form)
     },
     doFormSubmit(data){
       console.log(data)
       console.log(JSON.stringify(data))
-      $.ajax(vars.getAPIURL('/api/v1/registration'), {
+      $.ajax(vars.getAPIURL('/public/register'), {
         data: JSON.stringify(data),
         contentType: "application/json",
         type: "POST",
         success: (res)=>{
+          this.requesting = false
           console.log(res)
           if(res.hasOwnProperty("errors")){
             this.fieldErrors = res.errors
@@ -235,6 +232,7 @@ export default {
             // NO errors
             // Should first fetch authentication
             // What to do next
+            // Redirect to an information page: to read, to accept (like an e-book or sth)
           }
         }
       })
