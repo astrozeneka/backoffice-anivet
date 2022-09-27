@@ -16,7 +16,7 @@ pages.forEach((page)=>{
 
 let BOPages = ["login", "dashboard", "activity", "orders", "samples", "shipping", "results", "owners", "breeders",
     "vets", "scientists", "stats", "settings", "sample-details", "finance", "view-user", "notify-user", "update-user",
-    "delete-user", "add-user", "submit-receipt"]
+    "delete-user", "add-user", "submit-receipt", "payments"]
 let BOList = []
 BOPages.forEach((page)=>{
     BOList.push(new htmlWebpackPlugin({
@@ -36,6 +36,10 @@ module.exports = {
         adminLogin: "./src/js/adminLogin.js",
 
         "submit-receipt": "./src/js/submitReceipt.js",
+
+        login: "./src/js/login.js",
+        dashboard: "./src/js/dashboard.js",
+        payments: "./src/js/payments.js",
 
         /*
         login: "./src/js/login.js",
@@ -58,7 +62,7 @@ module.exports = {
         "update-user": "./src/js/update-user",
         "view-user": "./src/js/view-user",
         "add-user": "./src/js/add-user"
-
+        "submit-receipt": "./src/js/submitReceipt.js",
          */
     },
     output: {

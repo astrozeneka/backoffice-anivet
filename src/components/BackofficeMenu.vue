@@ -34,6 +34,12 @@
       </a>
     </li>
     <li class="nav-item">
+      <a href="/payments.html" class="nav-link">
+        <i class="fa-solid fa-cash-register"></i>
+        Payments
+      </a>
+    </li>
+    <li class="nav-item">
       <a href="/finance.html" class="nav-link">
         <i class="fa-solid fa-coins"></i>
         Finance
