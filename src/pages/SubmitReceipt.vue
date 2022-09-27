@@ -10,7 +10,7 @@
 
 
       <FormField2
-          id="fName1"
+          id="fReference"
           v-model="form.reference"
           type="text"
           placeholder="Receipt reference"
@@ -19,7 +19,7 @@
       />
 
       <FormField2
-          id="fName1"
+          id="fMethod"
           v-model="form.method"
           type="text"
           placeholder="Payment method"
@@ -39,8 +39,7 @@
           :field-errors="fieldErrors.linkReference"
       />
 
-      <SubmitButton :requesting="requesting"></SubmitButton>
-
+      <RequestingButton :requesting="requesting">Submit</RequestingButton>
 
     </form>
   </div>
@@ -53,10 +52,11 @@ import SubmitButton from "../components/SubmitButton";
 
 import * as $ from 'jquery'
 import vars from '../utils/vars';
+import RequestingButton from "../RequestingButton";
 
 export default {
   name: "SubmitReceipt",
-  components: {FormField2, FormErrors, SubmitButton},
+  components: {FormField2, FormErrors, RequestingButton},
   data(){
     return {
       requesting: false,

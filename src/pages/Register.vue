@@ -127,7 +127,7 @@
             :field-errors="fieldErrors.form"
         />
 
-        <SubmitButton @click="formSubmit" :requesting="requesting"></SubmitButton>
+        <RequestingButton @click="formSubmit" :requesting="requesting">Register</RequestingButton>
 
       </div>
     </form>
@@ -142,6 +142,7 @@ import FormField2 from "../components/FormField2";
 import vars from '../utils/vars';
 import FormErrors from "../components/FormErrors";
 import SubmitButton from "../components/SubmitButton";
+import RequestingButton from "../RequestingButton";
 
 
 export default {
@@ -191,7 +192,7 @@ export default {
       }
     }
   },
-  components: {FormField2, FormErrors, SubmitButton},
+  components: {RequestingButton, FormField2, FormErrors, SubmitButton},
   computed: {
     model: {
       get(){
@@ -233,6 +234,7 @@ export default {
             // Should first fetch authentication
             // What to do next
             // Redirect to an information page: to read, to accept (like an e-book or sth)
+            window.location.href = "terms-and-conditions.html?lref=pppjkmlkj"
           }
         }
       })

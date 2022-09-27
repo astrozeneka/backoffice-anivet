@@ -16,7 +16,8 @@ pages.forEach((page)=>{
 
 let BOPages = ["login", "dashboard", "activity", "orders", "samples", "shipping", "results", "owners", "breeders",
     "vets", "scientists", "stats", "settings", "sample-details", "finance", "view-user", "notify-user", "update-user",
-    "delete-user", "add-user", "submit-receipt", "payments"]
+    "delete-user", "add-user", "submit-receipt", "payments", "terms-and-conditions", "submit-orders", "preview-invoice",
+    "payment-methods", "references-and-links"]
 let BOList = []
 BOPages.forEach((page)=>{
     BOList.push(new htmlWebpackPlugin({
@@ -40,6 +41,12 @@ module.exports = {
         login: "./src/js/login.js",
         dashboard: "./src/js/dashboard.js",
         payments: "./src/js/payments.js",
+
+        "terms-and-conditions": "./src/js/terms-and-conditions.js",
+        "submit-orders": "./src/js/submit-orders.js",
+        "preview-invoice": "./src/js/preview-invoice.js",
+        "payment-methods": "./src/js/payment-methods.js",
+        "references-and-links": "./src/js/references-and-links.js"
 
         /*
         login: "./src/js/login.js",
@@ -115,6 +122,7 @@ module.exports = {
         extensions: ["*", ".js", ".vue", ".json"]
     },
     devServer: {
+        disableHostCheck: true,
         headers: {
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",

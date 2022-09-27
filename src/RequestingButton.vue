@@ -6,7 +6,7 @@
         type="submit"
         class="btn btn-primary"
     >
-      Register
+      <slot/>
     </button>
     <button
         v-else
@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: "SubmitButton",
+  name: "RequestingButton",
   props: ["requesting", 'click'],
   methods: {
     fc(e){
@@ -34,11 +34,5 @@ export default {
 </script>
 
 <style scoped>
-button[type=submit]{
-  width: 6.5em!important;
-}
-.spinner-border{
-  height: 1.4rem;
-  width: 1.4rem;
-}
+
 </style>
