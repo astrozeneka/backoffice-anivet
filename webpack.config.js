@@ -17,7 +17,7 @@ pages.forEach((page)=>{
 let BOPages = ["login", "dashboard", "activity", "orders", "samples", "shipping", "results", "owners", "breeders",
     "vets", "scientists", "stats", "settings", "sample-details", "finance", "view-user", "notify-user", "update-user",
     "delete-user", "add-user", "submit-receipt", "payments", "terms-and-conditions", "submit-orders", "preview-invoice",
-    "payment-methods", "references-and-links"]
+    "payment-methods", "references-and-links", "validate-user", "validate-order", "validate-receipt"]
 let BOList = []
 BOPages.forEach((page)=>{
     BOList.push(new htmlWebpackPlugin({
@@ -37,7 +37,6 @@ module.exports = {
         adminLogin: "./src/js/adminLogin.js",
 
         "submit-receipt": "./src/js/submitReceipt.js",
-
         login: "./src/js/login.js",
         dashboard: "./src/js/dashboard.js",
         payments: "./src/js/payments.js",
@@ -46,9 +45,9 @@ module.exports = {
         "submit-orders": "./src/js/submit-orders.js",
         "preview-invoice": "./src/js/preview-invoice.js",
         "payment-methods": "./src/js/payment-methods.js",
-        "references-and-links": "./src/js/references-and-links.js"
+        "references-and-links": "./src/js/references-and-links.js",
 
-        /*
+
         login: "./src/js/login.js",
         dashboard: "./src/js/dashboard.js",
         activity: "./src/js/activity.js",
@@ -68,9 +67,12 @@ module.exports = {
         "notify-user": "./src/js/notify-user",
         "update-user": "./src/js/update-user",
         "view-user": "./src/js/view-user",
-        "add-user": "./src/js/add-user"
+        "add-user": "./src/js/add-user",
         "submit-receipt": "./src/js/submitReceipt.js",
-         */
+
+        "validate-user": "./src/js/validate-user.js",
+        "validate-order": "./src/js/validate-order.js",
+        "validate-receipt": "./src/js/validate-receipt.js"
     },
     output: {
         filename: "[name].js"

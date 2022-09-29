@@ -32,6 +32,9 @@
             <a class="btn btn-sm btn-danger" :href="'/delete-user.html?id=' + entity.id">
               <i class="fa-regular fa-trash-can"></i>
             </a>
+            <a class="btn btn-warning" :href="'/validate-user.html?id=' + entity.id">
+              <i class="fa-regular fa-box"></i>
+            </a>
           </div>
         </td>
       </tr>
