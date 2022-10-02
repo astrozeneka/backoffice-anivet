@@ -127,7 +127,7 @@
             :field-errors="fieldErrors.form"
         />
 
-        <RequestingButton @click="formSubmit" :requesting="requesting">Register</RequestingButton>
+        <RequestingButton :requesting="requesting">Register</RequestingButton>
 
       </div>
     </form>

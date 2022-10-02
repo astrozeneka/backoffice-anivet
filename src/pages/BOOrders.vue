@@ -13,6 +13,10 @@
           -->
           <div v-for="order in orders" class="alert alert-light" role="alert">
             <h4 class="alert-heading">Order</h4>
+            <div>
+              <span v-if="order.validated" class="badge badge-pill badge-success">validated</span>
+              <span v-else class="badge badge-pill badge-warning">pending</span>
+            </div>
             <div class="m-0">{{order.date}}</div>
             From : {{order.name1}} {{order.name2}}
             &lt;email@google.com&gt;
@@ -48,6 +52,12 @@
               </tr>
               </tbody>
             </table>
+
+            <div>
+              <div class="btn-group" role="group" aria-label="">
+                <a class="btn btn-sm btn-primary" :href="'/validate-order.html?id='+order.id">Verify</a>
+              </div>
+            </div>
           </div>
 
         </div>

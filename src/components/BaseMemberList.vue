@@ -8,6 +8,7 @@
         <th scope="col">Lastname</th>
         <th scope="col">Username</th>
         <th scope="col">Email</th>
+        <th scope="col">Status</th>
         <th scope="col"></th>
       </tr>
       </thead>
@@ -18,6 +19,10 @@
         <td>{{ entity.name2 }}</td>
         <td>{{ entity.username }}</td>
         <td>{{ entity.email }}</td>
+        <td>
+          <span v-if="entity.validated" class="badge badge-pill badge-success">validated</span>
+          <span v-else class="badge badge-pill badge-warning">pending</span>
+        </td>
         <td>
           <div class="btn-group" role="group" aria-label="">
             <button class="btn btn-sm btn-primary">

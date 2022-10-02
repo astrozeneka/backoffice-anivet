@@ -162,6 +162,7 @@ export default {
   data(){
     return {
       requesting: false,
+      httpReferer: "",
       form: {
         name1: "",
         name2: "",
@@ -231,7 +232,7 @@ export default {
             this.validationFieldErrors = res.errors
           else {
             this.validationFieldErrors = {}
-            window.location.reload()
+            window.location.href = this.httpReferer
           }
         },
         error: (res)=>{
@@ -252,6 +253,7 @@ export default {
       },
       success: (res)=>{
         console.log(JSON.stringify(res))
+        this.httpReferer = res.type + "s.html"
         this.form = res
         this.validationForm.message = res.validationNoteMessage
         this.validationForm.validated = res.validationNoteValidated
