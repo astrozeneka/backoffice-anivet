@@ -16,6 +16,8 @@
             <th scope="col">Method</th>
             <th scope="col">Link Reference</th>
             <th scope="col">File</th>
+            <th scope="col">Status</th>
+            <th scope="col"></th>
             </thead>
             <tbody>
               <tr v-for="receipt in receiptList">
@@ -24,6 +26,18 @@
                 <td>{{ receipt.method }}</td>
                 <td>{{ receipt.linkReference }}</td>
                 <td><a href="#">Download file</a></td>
+                <td>
+
+                  <span v-if="receipt.validated" class="badge badge-pill badge-success">validated</span>
+                  <span v-else class="badge badge-pill badge-warning">pending</span>
+                </td>
+                <td>
+                  <div class="btn-group" role="group" aria-label="">
+                    <a class="btn btn-sm btn-primary" :href="'/validate-receipt.html?id=' + receipt.id">
+                      Verify
+                    </a>
+                  </div>
+                </td>
               </tr>
             </tbody>
           </table>
