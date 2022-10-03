@@ -72,6 +72,7 @@ import "popper.js";
 import "bootstrap/dist/js/bootstrap.min";
 import OrderTestForm from "../components/OrderTestForm";
 import SubmitButton from "../components/SubmitButton";
+import sessionstorage from "sessionstorage";
 
 let maxSample = 10
 export default {
@@ -81,6 +82,7 @@ export default {
     return {
       requesting: false,
       sampleShown: 1,
+      activeUser: {},
       form: {
         name1: "",
         name2: "",
@@ -243,9 +245,13 @@ export default {
       this.doFormSubmit(this.form)
     },
     doFormSubmit(data){
+      let token = sessionstorage.getItem("accessToken")
       let url = vars.getAPIURL("/public/submit-orders")
       $.ajax(url, {
         type: "POST",
+        beforeSend: (xhr)=>{
+          xhr.setRequestHeader('Authorization', `Bearer ${token}`)
+        },
         data: JSON.stringify(data),
         contentType: "application/json",
         success: (res)=>{
@@ -270,6 +276,23 @@ export default {
     let linkReference = (new URL(window.location.href)).searchParams.get("lref");
     if(linkReference == null)
       window.location.href = "error.html"
+
+    // Get details about the active user
+    let token = sessionstorage.getItem("accessToken")
+    $.ajax(vars.getAPIURL('/api/v1/baseMember/active'), {
+      type: "GET",
+      beforeSend: (xhr)=>{
+        xhr.setRequestHeader('Authorization', `Bearer ${token}`)
+      },
+      success: (res)=>{
+        console.info(`Receive JSON: ${JSON.stringify(res)}`)
+        this.activeUser = res
+      },
+      error: (res)=>{
+        console.error(res)
+        console.error("Error when loading active user data")
+      }
+    })
   }
 }
 </script>

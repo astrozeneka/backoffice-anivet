@@ -34,12 +34,17 @@
 <script>
 import SubmitButton from "../components/SubmitButton";
 import RequestingButton from "../RequestingButton";
+import sessionstorage from "sessionstorage";
+import vars from "../utils/vars";
+import * as $ from "jquery";
+
 export default {
   name: "TermsAndConditions",
   components: {RequestingButton, SubmitButton},
   data(){
     return {
-      requesting: false
+      requesting: false,
+      activeUser: {}
     }
   },
   methods: {
@@ -57,8 +62,25 @@ export default {
   beforeCreate() {
     // It should validate reference link first
     let linkReference = (new URL(window.location.href)).searchParams.get("lref");
-    if(linkReference == null)
-      window.location.href = "error.html"
+    /*if(linkReference == null)
+      window.location.href = "error.html"*/
+
+    // Get details about the active user
+    let token = sessionstorage.getItem("accessToken")
+    $.ajax(vars.getAPIURL('/api/v1/baseMember/active'), {
+      type: "GET",
+      beforeSend: (xhr)=>{
+        xhr.setRequestHeader('Authorization', `Bearer ${token}`)
+      },
+      success: (res)=>{
+        console.info(`Receive JSON: ${JSON.stringify(res)}`)
+        this.activeUser = res
+      },
+      error: (res)=>{
+        console.error(res)
+        console.error("Error when loading active user data")
+      }
+    })
   }
 }
 </script>

@@ -143,6 +143,7 @@ import vars from '../utils/vars';
 import FormErrors from "../components/FormErrors";
 import SubmitButton from "../components/SubmitButton";
 import RequestingButton from "../RequestingButton";
+import sessionstorage from "sessionstorage";
 
 
 export default {
@@ -230,11 +231,13 @@ export default {
             this.fieldErrors = res.errors
           }else{
             this.fieldErrors = {}
+            console.info(`Access-token is set to ${res.accessToken}`)
+            sessionstorage.setItem("accessToken", res.accessToken)
             // NO errors
             // Should first fetch authentication
             // What to do next
             // Redirect to an information page: to read, to accept (like an e-book or sth)
-            window.location.href = "terms-and-conditions.html?lref=pppjkmlkj"
+            window.location.href = "terms-and-conditions.html"
           }
         }
       })
