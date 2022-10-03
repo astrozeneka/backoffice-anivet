@@ -257,6 +257,9 @@ export default {
         success: (res)=>{
           this.requesting = false;
           // Success, should redirect
+          console.info(`Receive JSON ${JSON.stringify(res)}`)
+          sessionstorage.setItem("testOrderId", res.object.id)
+          console.info(`testOrderId is set to ${res.object.id}`)
           window.location.href = "preview-invoice.html"
         },
         error: (res)=>{

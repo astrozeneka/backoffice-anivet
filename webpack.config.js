@@ -17,7 +17,7 @@ pages.forEach((page)=>{
 let BOPages = ["login", "dashboard", "activity", "orders", "samples", "shipping", "results", "owners", "breeders",
     "vets", "scientists", "stats", "settings", "sample-details", "finance", "view-user", "notify-user", "update-user",
     "delete-user", "add-user", "submit-receipt", "payments", "terms-and-conditions", "submit-orders", "preview-invoice",
-    "payment-methods", "references-and-links", "validate-user", "validate-order", "validate-receipt"]
+    "payment-methods", "references-and-links", "validate-user", "validate-order", "validate-receipt", "order-finished"]
 let BOList = []
 BOPages.forEach((page)=>{
     BOList.push(new htmlWebpackPlugin({
@@ -46,7 +46,7 @@ module.exports = {
         "preview-invoice": "./src/js/preview-invoice.js",
         "payment-methods": "./src/js/payment-methods.js",
         "references-and-links": "./src/js/references-and-links.js",
-
+        "order-finished": "./src/js/order-finished.js",
 
         login: "./src/js/login.js",
         dashboard: "./src/js/dashboard.js",

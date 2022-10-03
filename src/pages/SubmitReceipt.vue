@@ -53,6 +53,7 @@ import SubmitButton from "../components/SubmitButton";
 import * as $ from 'jquery'
 import vars from '../utils/vars';
 import RequestingButton from "../RequestingButton";
+import sessionstorage from "sessionstorage";
 
 export default {
   name: "SubmitReceipt",
@@ -101,9 +102,16 @@ export default {
 
     },
     doFormSubmit: function (data) {
-      console.log(data)
+      console.info(data)
+      // Append testOrderId to data
+      let token = sessionstorage.getItem("accessToken")
+      data.testOrderId = sessionstorage.getItem("testOrderId")
+      console.info(data.testOrderId)
       $.ajax(vars.getAPIURL('/public/submit-receipt'), {
         type: "POST",
+        beforeSend: (xhr)=>{
+          xhr.setRequestHeader('Authorization', `Bearer ${token}`)
+        },
         data: JSON.stringify(data),
         contentType: "application/json",
         success: (res) => {
@@ -123,8 +131,11 @@ export default {
     }
   },
   created(){
-    let linkReference = (new URL(window.location.href)).searchParams.get("lref");
-    this.form.linkReference = linkReference
+  },
+  beforeCreate() {
+    let token = sessionstorage.getItem("accessToken")
+    let testOrderId = sessionstorage.getItem("testOrderId")
+    console.info(`testOrderId is ${testOrderId}`)
   }
 }
 </script>
