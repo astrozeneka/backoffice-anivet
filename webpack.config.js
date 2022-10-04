@@ -17,7 +17,10 @@ pages.forEach((page)=>{
 let BOPages = ["login", "dashboard", "activity", "orders", "samples", "shipping", "results", "owners", "breeders",
     "vets", "scientists", "stats", "settings", "sample-details", "finance", "view-user", "notify-user", "update-user",
     "delete-user", "add-user", "submit-receipt", "payments", "terms-and-conditions", "submit-orders", "preview-invoice",
-    "payment-methods", "references-and-links", "validate-user", "validate-order", "validate-receipt", "order-finished"]
+    "payment-methods", "references-and-links", "validate-user", "validate-order", "validate-receipt", "order-finished",
+    "parcels", "documents", "certifications", "add-parcel", "upload-document", "upload-result", "upload-certification",
+    "view-parcel", "view-document", "view-result", "view-certification"
+]
 let BOList = []
 BOPages.forEach((page)=>{
     BOList.push(new htmlWebpackPlugin({
@@ -54,7 +57,6 @@ module.exports = {
         orders: "./src/js/orders.js",
         samples: "./src/js/samples.js",
         shipping: "./src/js/shipping",
-        results: "./src/js/results",
         owners: "./src/js/owners",
         breeders: "./src/js/breeders",
         vets: "./src/js/vets",
@@ -72,7 +74,20 @@ module.exports = {
 
         "validate-user": "./src/js/validate-user.js",
         "validate-order": "./src/js/validate-order.js",
-        "validate-receipt": "./src/js/validate-receipt.js"
+        "validate-receipt": "./src/js/validate-receipt.js",
+
+        "parcels": "./src/js/parcels.js",
+        "documents": "./src/js/documents.js",
+        "results": "./src/js/results",
+        "certifications": "./src/js/certifications.js",
+        "add-parcel": "./src/js/add-parcel",
+        "upload-document": "./src/js/upload-document.js",
+        "upload-result": "./src/js/upload-result.js",
+        "upload-certification": "./src/js/upload-certification",
+        "view-parcel": "./src/js/view-parcel",
+        "view-document": "./src/js/view-document",
+        "view-result": "./src/js/view-result",
+        "view-certification": "./src/js/view-certification"
     },
     output: {
         filename: "[name].js"

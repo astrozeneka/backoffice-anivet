@@ -33,6 +33,30 @@
         Shipping
       </a>
     </li>
+
+    <li class="nav-item">
+      <a href="/parcels.html" class="nav-link">
+        Parcels
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/docs.html" class="nav-link">
+        Documents [*]
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/results.html" class="nav-link">
+        <i class="fa-solid fa-vials"></i>
+        Test Results
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/certifications.html" class="nav-link">
+        Certifications
+      </a>
+    </li>
+
+
     <li class="nav-item">
       <a href="/payments.html" class="nav-link">
         <i class="fa-solid fa-cash-register"></i>
@@ -43,12 +67,6 @@
       <a href="/finance.html" class="nav-link">
         <i class="fa-solid fa-coins"></i>
         Finance
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="/results.html" class="nav-link">
-        <i class="fa-solid fa-vials"></i>
-        Test Results
       </a>
     </li>
     <li class="nav-item">

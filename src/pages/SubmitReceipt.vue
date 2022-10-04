@@ -121,6 +121,7 @@ export default {
           }else{
             this.fieldErrors = {}
             // Redirect
+            window.location.href = "/order-finished.html"
           }
         },
         error: (res) => {
