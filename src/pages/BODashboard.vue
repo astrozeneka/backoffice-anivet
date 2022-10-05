@@ -1,10 +1,10 @@
 <template>
   <div>
-    <TopmenuBackoffice></TopmenuBackoffice>
-    <div class="main container">
+    <BackofficeTopMenu></BackofficeTopMenu>
+    <div class="main">
       <div class="row">
-        <div class="col-md-3">
-          <BackofficeMenu></BackofficeMenu>
+        <div class="col-md-3"> <!-- SHould use another column system -->
+          <BackofficeAsideMenu></BackofficeAsideMenu>
         </div>
         <div class="col-md-9">
 
@@ -76,10 +76,12 @@ import TopmenuBackoffice from "../components/TopmenuBackoffice";
 import BackofficeMenu from "../components/BackofficeMenu";
 import vars from "../utils/vars";
 import * as $ from "jquery";
+import BackofficeAsideMenu from "../components/BackofficeAsideMenu";
+import BackofficeTopMenu from "../components/BackofficeTopMenu";
 
 export default {
   name: "BODashboard",
-  components: {BackofficeMenu, TopmenuBackoffice},
+  components: {BackofficeTopMenu, BackofficeAsideMenu, BackofficeMenu, TopmenuBackoffice},
   data(){
     return {
       dashboard: {
