@@ -40,7 +40,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a href="/docs.html" class="nav-link">
+      <a href="/documents.html" class="nav-link">
         Documents [*]
       </a>
     </li>
