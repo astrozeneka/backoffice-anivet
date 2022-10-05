@@ -19,7 +19,9 @@ let BOPages = ["login", "dashboard", "activity", "orders", "samples", "shipping"
     "delete-user", "add-user", "submit-receipt", "payments", "terms-and-conditions", "submit-orders", "preview-invoice",
     "payment-methods", "references-and-links", "validate-user", "validate-order", "validate-receipt", "order-finished",
     "parcels", "documents", "certifications", "add-parcel", "upload-document", "upload-result", "upload-certification",
-    "view-parcel", "view-document", "view-result", "view-certification"
+    "view-parcel", "view-document", "view-result", "view-certification",
+
+    "owner-list"
 ]
 let BOList = []
 BOPages.forEach((page)=>{
@@ -87,7 +89,9 @@ module.exports = {
         "view-parcel": "./src/js/view-parcel",
         "view-document": "./src/js/view-document",
         "view-result": "./src/js/view-result",
-        "view-certification": "./src/js/view-certification"
+        "view-certification": "./src/js/view-certification",
+
+        "owner-list": "./src/js/owner-list"
     },
     output: {
         filename: "[name].js"

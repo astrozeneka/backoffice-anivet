@@ -1,6 +1,12 @@
 <template>
-  <div>
-    <header>Dashboard</header>
+  <div class="asideMenu">
+    <header>
+      <img
+          src="/assets/logotype.png"
+          class="img-fluid"
+          style="max-height: 24px"
+          alt="Anivet Pet:DNA"
+      /></header>
     <ul class="nav flex-column">
       <li class="nav-item">
         <a href="/dashboard.html" class="nav-link">
@@ -87,15 +93,29 @@
 </template>
 
 <script>
-import "jquery";
+import * as $ from "jquery";
 import "popper.js";
 import "bootstrap/dist/js/bootstrap.min";
 export default {
-  name: "BackofficeAsideMenu"
+  name: "BackofficeAsideMenu",
+  created(){
+    // Fetch the active menu
+    $(()=>{
+      $('.nav-link').each((i, e)=>{
+        if(window.location.href.includes($(e).attr('href'))){
+          e.className+= " text-primary active"
+          console.log(e)
+        }
+      })
+    })
+  }
 }
 </script>
 
 <style scoped lang="scss">
+.asideMenu{
+  border-right: rgb(210, 220, 220) 1px solid;
+}
 header, .nav-link{
   padding-left: 20px;
   padding-right: 20px;
@@ -105,17 +125,22 @@ header{
   font-weight: 700;
   padding-top: 2rem;
   padding-bottom: 1rem;
-  border-bottom: rgb(196, 206, 206) 1px solid;
+  border-bottom: rgb(229, 232, 232) 1px solid;
 }
 .nav{
   padding-top: 1rem;
 }
 .nav-item{
   .nav-link{
+    color: #545b64;
     font-size: 14px;
     font-weight: 400;
     &[role='button']{
       font-weight: 700;
+    }
+    &.active{
+      font-weight: 700;
+      color: #bd0000;
     }
   }
 
