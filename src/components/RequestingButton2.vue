@@ -4,14 +4,14 @@
         @click="fc"
         v-if="!requesting"
         type="submit"
-        :class="'btn btn-primary ' + className"
+        :class="'btn ' + className"
     >
       <slot/>
     </button>
     <button
         v-else
         type="submit"
-        :class="'btn btn-primary ' + className"
+        :class="'btn ' + className"
         disabled
     >
       <div class="spinner-border" role="status">
@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: "RequestingButton",
+  name: "RequestingButton2",
   props: ["requesting", 'click', 'className'],
   methods: {
     fc(e){

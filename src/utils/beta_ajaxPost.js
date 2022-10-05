@@ -1,13 +1,16 @@
+
 import sessionstorage from "sessionstorage";
 import vars from "./vars";
 import * as $ from "jquery";
 
-let beta_ajaxGet = (uri)=>{
+let beta_ajaxPost = (uri, data)=>{
     return new Promise((resolve)=>{
         let token = sessionstorage.getItem("accessToken")
         let url = vars.getAPIURL(uri)
         $.ajax(url, {
-            type: "GET",
+            type: "POST",
+            data: JSON.stringify(data),
+            contentType: "application/json",
             beforeSend: (xhr)=>{
                 if(token != null)
                     xhr.setRequestHeader('Authorization', `Bearer ${token}`)
@@ -23,4 +26,4 @@ let beta_ajaxGet = (uri)=>{
         })
     })
 }
-export default beta_ajaxGet
+export default beta_ajaxPost
