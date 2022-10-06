@@ -9,20 +9,20 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
           <li class="breadcrumb-item"><a href="#">Data</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Breeders</li>
+          <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
         </ol>
       </nav>
     </header>
     <main>
       <div class="row">
         <div class="col-md-8 head">
-          <h1>Breeders <span class="count">(24)</span></h1>
-          <p>Vivamus sed iaculis leo. Nullam nec libero quam. Fusce enim ipsum, cursus non interdum non, volutpat sed sapien. </p>
+          <h1>{{ title }} <span class="count">(24)</span></h1>
+          <p>{{ description }} </p>
         </div>
         <div class="col-md-4">
           <a class='btn btn-light btn-sm btn-block' href="#">Refresh</a>
           <a class='btn btn-light btn-sm btn-block' href="#">Delete</a>
-          <a class='btn btn-primary btn-sm btn-block' href="#">Add</a>
+          <a class='btn btn-primary btn-sm btn-block' :href="`${slug}-add.html`">Add</a>
         </div>
       </div>
 
@@ -79,15 +79,17 @@ import sessionstorage from "sessionstorage";
 
 export default {
   name: "DataList",
+  props: ['title', 'description', 'slug'],
   data(){
     return {
       message: null,
       messageClass: null,
-      entityList: []
+      entityList: [],
     }
   },
-  async beforeCreate() {
-    this.entityList = await beta_ajaxGet("/api/v1/data/breeder")
+  async created() {
+    console.log(`/api/v1/data/${this.slug}`)
+    this.entityList = await beta_ajaxGet(`/api/v1/data/${this.slug}`)
     this.message = sessionstorage.getItem("message")
     this.messageClass = sessionstorage.getItem("message-class")
     sessionstorage.removeItem("message")

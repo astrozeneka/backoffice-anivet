@@ -7,10 +7,11 @@
         </div>
         <div class="col-md-9">
 
-          <!--
-            1.0 Alert
-          -->
-          <DataList></DataList>
+          <DataList
+            title="Owner"
+            description="Vivamus sed iaculis leo. Nullam nec libero quam. Fusce enim ipsum, cursus non interdum non, volutpat sed sapien."
+            slug="owner"
+          ></DataList>
 
         </div>
       </div>

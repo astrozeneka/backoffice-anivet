@@ -21,7 +21,11 @@ let BOPages = ["login", "dashboard", "activity", "orders", "samples", "shipping"
     "parcels", "documents", "certifications", "add-parcel", "upload-document", "upload-result", "upload-certification",
     "view-parcel", "view-document", "view-result", "view-certification",
 
-    "owner-list", "owner-add"
+    "owner-list", "owner-add",
+    "breeder-list", "breeder-add",
+    "vet-list", "vet-add",
+    "scientist-list", "scientist-add",
+    "admin-list", "admin-add"
 ]
 let BOList = []
 BOPages.forEach((page)=>{
@@ -92,8 +96,17 @@ module.exports = {
         "view-result": "./src/js/view-result",
         "view-certification": "./src/js/view-certification",
         */
+
         "owner-list": "./src/js/owner-list",
-        "owner-add": "./src/js/owner-add"
+        "owner-add": "./src/js/owner-add",
+        "breeder-list": "./src/js/breeder-list",
+        "breeder-add": "./src/js/breeder-add",
+        "vet-list": "./src/js/vet-list",
+        "vet-add": "./src/js/vet-add",
+        "scientist-list": "./src/js/scientist-list",
+        "scientist-add": "./src/js/scientist-add",
+        "admin-list": "./src/js/admin-list",
+        "admin-add": "./src/js/admin-add"
     },
     output: {
         filename: "[name].js"
