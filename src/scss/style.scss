@@ -19,3 +19,25 @@
 a.btn{
   text-decoration: none;
 }
+.btn{
+  padding-left: 2em!important;
+  padding-right: 2em!important;
+}
+
+
+/****************
+ $ Theming
+ */
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/maps"; // **Newly added!**
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/helpers";
+@import "~bootstrap/scss/utilities/api";
+
+@import "~bootstrap/scss/mixins/container";
+.main{
+  @include make-container(5em);
+}

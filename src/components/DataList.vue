@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div v-if="message" :class="'message bg-' + messageClass">
+      <i class="fa-solid fa-circle-info"></i>
+      <div class="content">{{ message }}</div>
+    </div>
     <header>
       <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -55,12 +59,6 @@
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td><input type="checkbox"/></td>
-            <td><a href="owner-edit.html?id=2">John Doe</a></td>
-            <td>john.doe</td>
-            <td>john.doe@gmail.com</td>
-          </tr>
           <tr v-for="entity in entityList">
             <!-- Put this in a slot -->
             <td><input type="checkbox"/></td>
@@ -77,16 +75,23 @@
 
 <script>
 import beta_ajaxGet from "../utils/beta_ajaxGet";
+import sessionstorage from "sessionstorage";
 
 export default {
   name: "DataList",
   data(){
     return {
+      message: null,
+      messageClass: null,
       entityList: []
     }
   },
   async beforeCreate() {
     this.entityList = await beta_ajaxGet("/api/v1/data/breeder")
+    this.message = sessionstorage.getItem("message")
+    this.messageClass = sessionstorage.getItem("message-class")
+    sessionstorage.removeItem("message")
+    sessionstorage.removeItem("message-class")
   }
 }
 </script>
@@ -156,6 +161,21 @@ table a{
 }
 .page-link{
   border-width: 0px!important;
+}
+.message{
+  margin-left: -24px;
+  margin-right: calc(-24px - 1em);
+  padding: 24px;
+  padding-top: 2em;
+  padding-bottom: 1em;
+  i{
+    float:left;
+    font-size: 1.2em;
+  }
+  &>div{
+    margin-left: 2em;
+    margin-top: -2px;
+  }
 }
 
 /*

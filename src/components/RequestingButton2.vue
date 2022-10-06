@@ -34,5 +34,8 @@ export default {
 </script>
 
 <style scoped>
-
+.spinner-border{
+  height: 1em;
+  width: 1em;
+}
 </style>
