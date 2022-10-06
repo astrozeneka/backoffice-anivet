@@ -61,6 +61,13 @@
             <td>john.doe</td>
             <td>john.doe@gmail.com</td>
           </tr>
+          <tr v-for="entity in entityList">
+            <!-- Put this in a slot -->
+            <td><input type="checkbox"/></td>
+            <td><a :href="'owner-edit.html?id=' + entity.id">{{entity.name1}} {{entity.name2}}</a></td>
+            <td>{{ entity.username }}</td>
+            <td>{{ entity.email}}</td>
+          </tr>
           </tbody>
         </table>
       </div>
@@ -69,8 +76,18 @@
 </template>
 
 <script>
+import beta_ajaxGet from "../utils/beta_ajaxGet";
+
 export default {
-  name: "DataList"
+  name: "DataList",
+  data(){
+    return {
+      entityList: []
+    }
+  },
+  async beforeCreate() {
+    this.entityList = await beta_ajaxGet("/api/v1/data/breeder")
+  }
 }
 </script>
 
