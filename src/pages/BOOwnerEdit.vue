@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <div class="main">
       <div class="row">
         <div class="col-md-3"> <!-- SHould use another column system -->
@@ -7,27 +8,25 @@
         </div>
         <div class="col-md-9">
           <header>
-            <h1>Add owner</h1>
+            <h1>Update owner</h1>
           </header>
 
           <DataForm
             :form="form"
-            :fieldErrors="fieldErrors"
             @next="_next"
-            @cancel="_next"
+            @cancel="_cancel"
             slug="owner"
-            action="add"
+            action="edit"
           >
-
             <h2>Add personal information</h2>
             <p>Suspendisse potenti. Suspendisse rhoncus neque ut metus ornare molestie. Aenean lacinia et magna et sollicitudin.</p>
             <FormFieldLR
-              id="fName1"
-              v-model="form.name1"
-              type="text"
-              placeholder=""
-              label="Firstname*"
-              :field-errors="fieldErrors.name1"
+                id="fName1"
+                v-model="form.name1"
+                type="text"
+                placeholder=""
+                label="Firstname*"
+                :field-errors="fieldErrors.name1"
             />
             <FormFieldLR
                 id="fName2"
@@ -149,19 +148,18 @@
 </template>
 
 <script>
+import DataForm from "../components/DataForm";
+import RequestingButton2 from "../components/RequestingButton2";
 import DataList from "../components/DataList";
 import BackofficeTopMenu from "../components/BackofficeTopMenu";
 import BackofficeAsideMenu from "../components/BackofficeAsideMenu";
 import TopmenuBackoffice from "../components/TopmenuBackoffice";
 import FormFieldLR from "../components/FormFieldLR";
-import RequestingButton2 from "../components/RequestingButton2";
-import DataForm from "../components/DataForm";
 import sessionstorage from "sessionstorage";
+
 export default {
-  name: "BOOwnerAdd",
-  components: {
-    DataForm,
-    RequestingButton2, DataList, BackofficeTopMenu, BackofficeAsideMenu, TopmenuBackoffice, FormFieldLR},
+  name: "BOOwnerEdit",
+  components: {DataForm,RequestingButton2, DataList, BackofficeTopMenu, BackofficeAsideMenu, TopmenuBackoffice, FormFieldLR},
   data(){
     return {
       form: {
@@ -202,7 +200,7 @@ export default {
   },
   methods: {
     _next(){
-      sessionstorage.setItem("message", "An owner has been added successfully")
+      sessionstorage.setItem("message", "An owner has been updated successfully")
       sessionstorage.setItem("message-class", "success")
       window.location.href = "owner-list.html"
     },
@@ -219,3 +217,4 @@ export default {
 <style scoped lang="scss">
 @import '../scss/forms.css';
 </style>
+

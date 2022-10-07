@@ -21,7 +21,7 @@ let BOPages = ["login", "dashboard", "activity", "orders", "samples", "shipping"
     "parcels", "documents", "certifications", "add-parcel", "upload-document", "upload-result", "upload-certification",
     "view-parcel", "view-document", "view-result", "view-certification",
 
-    "owner-list", "owner-add",
+    "owner-list", "owner-add", "owner-edit",
     "breeder-list", "breeder-add",
     "vet-list", "vet-add",
     "scientist-list", "scientist-add",
@@ -99,6 +99,7 @@ module.exports = {
 
         "owner-list": "./src/js/owner-list",
         "owner-add": "./src/js/owner-add",
+        "owner-edit": "./src/js/owner-edit",
         "breeder-list": "./src/js/breeder-list",
         "breeder-add": "./src/js/breeder-add",
         "vet-list": "./src/js/vet-list",

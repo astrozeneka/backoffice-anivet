@@ -62,7 +62,7 @@
           <tr v-for="entity in entityList">
             <!-- Put this in a slot -->
             <td><input type="checkbox"/></td>
-            <td><a :href="'owner-edit.html?id=' + entity.id">{{entity.name1}} {{entity.name2}}</a></td>
+            <td><a :href="`${slug}-edit.html?id=${entity.id}`">{{entity.name1}} {{entity.name2}}</a></td>
             <td>{{ entity.username }}</td>
             <td>{{ entity.email}}</td>
           </tr>
