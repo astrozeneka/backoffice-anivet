@@ -13,6 +13,7 @@
 
           <DataForm
             :form="form"
+            :field-errors="fieldErrors"
             @next="_next"
             @cancel="_cancel"
             slug="owner"

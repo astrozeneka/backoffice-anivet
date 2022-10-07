@@ -19,6 +19,7 @@ import RequestingButton2 from "./RequestingButton2";
 import beta_ajaxPost from "../utils/beta_ajaxPost";
 import sessionstorage from "sessionstorage";
 import beta_ajaxGet from "../utils/beta_ajaxGet";
+import beta_ajaxPut from "../utils/beta_ajaxPut";
 
 export default {
   name: "DataForm",
@@ -43,17 +44,20 @@ export default {
       this.doFormSubmit(this.form)
     },
     async doFormSubmit(data){
+      let d = null
       if(this.action == "add") {
-        let d = await beta_ajaxPost(`/api/v1/data/${this.slug}`, data)
-        this.requesting = false
-        if (d.hasOwnProperty('errors')) {
-          for (const key in this.fieldErrors)
-            this.fieldErrors[key] = d.errors[key]
-        } else {
-          this.$emit('next')
-        }
-      }else if(this.action == "edit"){
+        d = await beta_ajaxPost(`/api/v1/data/${this.slug}`, data)
+      }else if(this.action == "edit") {
+        let id = (new URL(window.location.href)).searchParams.get("id");
+        d = await beta_ajaxPut(`/api/v1/data/${this.slug}/${id}`, data)
+      }
 
+      this.requesting = false
+      if (d.hasOwnProperty('errors')) {
+        for (const key in this.fieldErrors)
+          this.fieldErrors[key] = d.errors[key]
+      } else {
+        this.$emit('next')
       }
     }
   },
