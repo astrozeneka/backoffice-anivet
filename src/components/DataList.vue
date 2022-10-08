@@ -30,17 +30,17 @@
 
       <div class="search">
         <i class="fa fa-search"></i>
-        <input type="text" class="form-control form-control-sm" placeholder="Search breeder by name, email or another keywords">
-        <button class="btn btn-primary btn-sm">Search</button>
+        <input type="text" v-model="searchQuery" class="form-control form-control-sm" placeholder="Search breeder by name, email or another keywords">
+        <button class="btn btn-primary btn-sm" @click="search()">Search</button>
       </div>
 
       <div class="data">
 
-        <nav aria-label="Page navigation example">
+        <nav aria-label="Page navigation example" v-if="havePagination">
           <ul class="pagination justify-content-end">
             <li class="page-item">
               <a v-if="paginationActivePage==0" class="page-link disabled" href="#" tabindex="-1" aria-disabled="true">&lt;</a>
-              <a v-else class="page-link" href="#" tabindex="-1" @click="paginationGoTo(i-1)">&lt;</a>
+              <a v-else class="page-link" href="#" tabindex="-1" @click="paginationGoTo(paginationActivePage-1)">&lt;</a>
             </li>
             <slot v-for="(n,i) in paginationTotal">
               <li v-if="i==paginationActivePage" class="page-link disabled">{{n}}</li>
@@ -48,7 +48,7 @@
             </slot>
             <li class="page-item">
               <a v-if="paginationActivePage+1==paginationTotal" class="page-link disabled" href="#" tabindex="-1" aria-disabled="true">&gt;</a>
-              <a v-else class="page-link" href="#" tabindex="-1" @click="paginationGoTo(i+1)">&gt;</a>
+              <a v-else class="page-link" href="#" tabindex="-1" @click="paginationGoTo(paginationActivePage+1)">&gt;</a>
             </li>
           </ul>
         </nav>
@@ -81,6 +81,7 @@
 import beta_ajaxGet from "../utils/beta_ajaxGet";
 import sessionstorage from "sessionstorage";
 import beta_ajaxGet2 from "../utils/beta_ajaxGet2";
+import beta_ajaxPost from "../utils/beta_ajaxPost";
 
 export default {
   name: "DataList",
@@ -94,10 +95,16 @@ export default {
       totalCount: 0,
 
       // Pagination (should be inserted in a separate component)
+      havePagination: true,
       paginationActivePage:0, // From zero
       paginationTotal: undefined,
       viewOffset: 0,
       viewLimit: 10, // Configurable
+
+      // Searching
+      searchQuery: ""
+
+      // Filtering
     }
   },
   computed: {
@@ -118,6 +125,7 @@ export default {
         window.location.href = url
     },
     paginationGoTo(n){
+      console.log(n)
       this.viewOffset = n*10
       this.paginationActivePage = n
       this.refresh()
@@ -125,10 +133,14 @@ export default {
     async refresh(){
       this.entityList = []
       this.entityList = await beta_ajaxGet(`/api/v1/data/${this.slug}?offset=${this.viewOffset}&limit=${this.viewLimit}`)
-
+      let a = await beta_ajaxGet(`/api/v1/data/${this.slug}/props`)
+      this.totalCount = a.totalCount
+      this.havePagination = true
     },
-    search(){
-
+    async search(){
+      this.entityList = []
+      this.entityList = await beta_ajaxPost(`/api/v1/data/${this.slug}/search?offset=${this.viewOffset}&limit=${this.viewLimit}&q=${this.searchQuery}`)
+      this.havePagination = false
     }
   },
   async created() {
