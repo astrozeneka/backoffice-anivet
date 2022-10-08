@@ -21,11 +21,11 @@ let BOPages = ["login", "dashboard", "activity", "orders", "samples", "shipping"
     "parcels", "documents", "certifications", "add-parcel", "upload-document", "upload-result", "upload-certification",
     "view-parcel", "view-document", "view-result", "view-certification",
 
-    "owner-list", "owner-add", "owner-edit",
-    "breeder-list", "breeder-add",
-    "vet-list", "vet-add",
-    "scientist-list", "scientist-add",
-    "admin-list", "admin-add"
+    "owner-list", "owner-add", "owner-edit", "owner-delete",
+    "breeder-list", "breeder-add", "breeder-edit"," breeder-delete",
+    "vet-list", "vet-add", "vet-edit", "vet-delete",
+    "scientist-list", "scientist-add", "scientist-edit", "scientist-delete",
+    "admin-list", "admin-add", "scientist-edit", "scientist-delete"
 ]
 let BOList = []
 BOPages.forEach((page)=>{
@@ -97,17 +97,27 @@ module.exports = {
         "view-certification": "./src/js/view-certification",
         */
 
-        "owner-list": "./src/js/owner-list",
+        "owner-list": "./src/js/owner-list", // Owner CRUD
         "owner-add": "./src/js/owner-add",
         "owner-edit": "./src/js/owner-edit",
-        "breeder-list": "./src/js/breeder-list",
+        "owner-delete": "./src/js/owner-delete",
+        "breeder-list": "./src/js/breeder-list", // Breeder Crud
         "breeder-add": "./src/js/breeder-add",
-        "vet-list": "./src/js/vet-list",
+        "breeder-edit": "./src/js/breeder-edit",
+        "breeder-delete": "./src/js/breeder-delete",
+        "vet-list": "./src/js/vet-list", // Vet Crud
         "vet-add": "./src/js/vet-add",
-        "scientist-list": "./src/js/scientist-list",
+        "vet-edit": "./src/js/vet-edit",
+        "vet-delete": "./src/js/vet-delete",
+        "scientist-list": "./src/js/scientist-list", // Scientist Crud
         "scientist-add": "./src/js/scientist-add",
-        "admin-list": "./src/js/admin-list",
-        "admin-add": "./src/js/admin-add"
+        "scientist-edit": "./src/js/scientist-edit",
+        "scientist-delete": "./src/js/scientist-delete",
+        "admin-list": "./src/js/admin-list", // Admin Crud
+        "admin-add": "./src/js/admin-add",
+        "admin-edit": "./src/js/admin-edit",
+        "admin-delete": "./src/js/admin-delete"
+        // Should have one Crud page set for each editable view
     },
     output: {
         filename: "[name].js"

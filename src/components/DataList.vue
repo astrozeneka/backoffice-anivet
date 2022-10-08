@@ -16,12 +16,14 @@
     <main>
       <div class="row">
         <div class="col-md-8 head">
-          <h1>{{ title }} <span class="count">(24)</span></h1>
+          <h1>{{ title }} <span class="count">({{ totalCount }})</span></h1>
           <p>{{ description }} </p>
         </div>
         <div class="col-md-4">
           <a class='btn btn-light btn-sm btn-block' href="#">Refresh</a>
-          <a class='btn btn-light btn-sm btn-block' href="#">Delete</a>
+          <a :class="'btn btn-light btn-sm btn-block ' + (selectedLength==0?'disabled':'')" href="#"
+             @click="deleteClicked"
+          >Delete {{selectedLength}} row{{selectedLength>1?'s':''}}</a>
           <a class='btn btn-primary btn-sm btn-block' :href="`${slug}-add.html`">Add</a>
         </div>
       </div>
@@ -61,7 +63,7 @@
           <tbody>
           <tr v-for="entity in entityList">
             <!-- Put this in a slot -->
-            <td><input type="checkbox"/></td>
+            <td><input type="checkbox" v-model="selectedArray[entity.id]"/></td>
             <td><a :href="`${slug}-edit.html?id=${entity.id}`">{{entity.name1}} {{entity.name2}}</a></td>
             <td>{{ entity.username }}</td>
             <td>{{ entity.email}}</td>
@@ -76,6 +78,7 @@
 <script>
 import beta_ajaxGet from "../utils/beta_ajaxGet";
 import sessionstorage from "sessionstorage";
+import beta_ajaxGet2 from "../utils/beta_ajaxGet2";
 
 export default {
   name: "DataList",
@@ -85,15 +88,39 @@ export default {
       message: null,
       messageClass: null,
       entityList: [],
+      selectedArray: [],
+      totalCount: 0,
+    }
+  },
+  computed: {
+    selectedLength(){
+      let arr = []
+      for (const [index, element] of this.selectedArray.entries())
+        if(element) arr.push(index)
+      return arr.length
+    }
+  },
+  methods: {
+    deleteClicked(){
+      let arr = []
+      for (const [index, element] of this.selectedArray.entries())
+        if(element) arr.push(index)
+      let url = `${this.slug}-delete.html?idList=${arr.join(',')}`
+      if(arr.length > 0)
+        window.location.href = url
     }
   },
   async created() {
     console.log(`/api/v1/data/${this.slug}`)
-    this.entityList = await beta_ajaxGet(`/api/v1/data/${this.slug}`)
     this.message = sessionstorage.getItem("message")
     this.messageClass = sessionstorage.getItem("message-class")
     sessionstorage.removeItem("message")
     sessionstorage.removeItem("message-class")
+
+    this.entityList = await beta_ajaxGet(`/api/v1/data/${this.slug}`)
+    let a = await beta_ajaxGet(`/api/v1/data/${this.slug}/props`)
+    this.totalCount = a.totalCount
+    console.log(a)
   }
 }
 </script>
