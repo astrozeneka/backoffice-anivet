@@ -20,7 +20,7 @@
           <p>{{ description }} </p>
         </div>
         <div class="col-md-4">
-          <a class='btn btn-light btn-sm btn-block' href="#">Refresh</a>
+          <a class='btn btn-light btn-sm btn-block' href="#" @click="refresh()">Refresh</a>
           <a :class="'btn btn-light btn-sm btn-block ' + (selectedLength==0?'disabled':'')" href="#"
              @click="deleteClicked"
           >Delete {{selectedLength}} row{{selectedLength>1?'s':''}}</a>
@@ -38,18 +38,20 @@
 
         <nav aria-label="Page navigation example">
           <ul class="pagination justify-content-end">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">&lt;</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
             <li class="page-item">
-              <a class="page-link" href="#">&gt;</a>
+              <a v-if="paginationActivePage==0" class="page-link disabled" href="#" tabindex="-1" aria-disabled="true">&lt;</a>
+              <a v-else class="page-link" href="#" tabindex="-1" @click="paginationGoTo(i-1)">&lt;</a>
+            </li>
+            <slot v-for="(n,i) in paginationTotal">
+              <li v-if="i==paginationActivePage" class="page-link disabled">{{n}}</li>
+              <li v-else class="page-link" href="#" @click="paginationGoTo(i)">{{n}}</li>
+            </slot>
+            <li class="page-item">
+              <a v-if="paginationActivePage+1==paginationTotal" class="page-link disabled" href="#" tabindex="-1" aria-disabled="true">&gt;</a>
+              <a v-else class="page-link" href="#" tabindex="-1" @click="paginationGoTo(i+1)">&gt;</a>
             </li>
           </ul>
         </nav>
-
 
         <table class="table">
           <thead>
@@ -90,6 +92,12 @@ export default {
       entityList: [],
       selectedArray: [],
       totalCount: 0,
+
+      // Pagination (should be inserted in a separate component)
+      paginationActivePage:0, // From zero
+      paginationTotal: undefined,
+      viewOffset: 0,
+      viewLimit: 10, // Configurable
     }
   },
   computed: {
@@ -108,6 +116,19 @@ export default {
       let url = `${this.slug}-delete.html?idList=${arr.join(',')}`
       if(arr.length > 0)
         window.location.href = url
+    },
+    paginationGoTo(n){
+      this.viewOffset = n*10
+      this.paginationActivePage = n
+      this.refresh()
+    },
+    async refresh(){
+      this.entityList = []
+      this.entityList = await beta_ajaxGet(`/api/v1/data/${this.slug}?offset=${this.viewOffset}&limit=${this.viewLimit}`)
+
+    },
+    search(){
+
     }
   },
   async created() {
@@ -117,10 +138,12 @@ export default {
     sessionstorage.removeItem("message")
     sessionstorage.removeItem("message-class")
 
-    this.entityList = await beta_ajaxGet(`/api/v1/data/${this.slug}`)
     let a = await beta_ajaxGet(`/api/v1/data/${this.slug}/props`)
     this.totalCount = a.totalCount
-    console.log(a)
+
+    // Build the pagination (should be inserted in a separated component)
+    this.paginationTotal = parseInt(this.totalCount /10)+1
+    this.entityList = await beta_ajaxGet(`/api/v1/data/${this.slug}?offset=${this.viewOffset}&limit=${this.viewLimit}`)
   }
 }
 </script>
