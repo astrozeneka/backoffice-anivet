@@ -65,7 +65,6 @@
                 label="Address*"
                 :field-errors="fieldErrors.address1"
             />
-
             <FormFieldLR
                 id="fCountry"
                 v-model="form.country"
@@ -74,7 +73,6 @@
                 label="Country*"
                 :field-errors="fieldErrors.country"
             />
-
             <FormFieldLR
                 id="fChangwat"
                 v-model="form.changwat"
@@ -83,7 +81,6 @@
                 label="Province"
                 :field-errors="fieldErrors.changwat"
             />
-
             <FormFieldLR
                 id="fAmphoe"
                 v-model="form.amphoe"
@@ -92,7 +89,6 @@
                 label="Amphoe"
                 :field-errors="fieldErrors.amphoe"
             />
-
             <FormFieldLR
                 id="fTambon"
                 v-model="form.tambon"
@@ -122,7 +118,6 @@
                 label="Username*"
                 :field-errors="fieldErrors.username"
             />
-
             <FormFieldLR
                 id="fPassword"
                 v-model="form.password"
@@ -131,7 +126,6 @@
                 label="Password"
                 :field-errors="fieldErrors.password"
             />
-
             <FormFieldLR
                 id="fPasswordCheck"
                 v-model="form.passwordCheck"

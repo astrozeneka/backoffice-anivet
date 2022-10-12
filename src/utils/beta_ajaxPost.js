@@ -17,6 +17,7 @@ let beta_ajaxPost = (uri, data)=>{
             },
             success: (res)=>{
                 console.debug(`Receive JSON ${res}`)
+                console.debug(res)
                 resolve(res)
             },
             error: (res)=>{

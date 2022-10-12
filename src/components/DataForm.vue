@@ -9,7 +9,10 @@
     <slot></slot>
     <div class="text-right pt-5">
       <button class="btn text-primary btn-sm">Cancel</button>
-      <RequestingButton2 className="btn-primary btn-sm" :requesting="requesting">Add</RequestingButton2>
+      <RequestingButton2 className="btn-primary btn-sm" :requesting="requesting">
+        <span v-if="action=='edit'">Update</span>
+        <span v-else>Add</span>
+      </RequestingButton2>
     </div>
   </form>
 </template>
@@ -63,7 +66,6 @@ export default {
   },
   async created() {
     if(this.action == "edit"){
-      console.log("sdf")
       let id = (new URL(window.location.href)).searchParams.get("id");
       let d = await beta_ajaxGet(`/api/v1/data/${this.slug}/${id}`, )
       for (const key in this.form)

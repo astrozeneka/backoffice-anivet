@@ -150,6 +150,7 @@ export default {
     sessionstorage.removeItem("message")
     sessionstorage.removeItem("message-class")
 
+    console.log(this.slug)
     let a = await beta_ajaxGet(`/api/v1/data/${this.slug}/props`)
     this.totalCount = a.totalCount
 

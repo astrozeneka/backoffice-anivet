@@ -22,10 +22,10 @@ let BOPages = ["login", "dashboard", "activity", "orders", "samples", "shipping"
     "view-parcel", "view-document", "view-result", "view-certification",
 
     "owner-list", "owner-add", "owner-edit", "owner-delete",
-    "breeder-list", "breeder-add", "breeder-edit"," breeder-delete",
+    "breeder-list", "breeder-add", "breeder-edit","breeder-delete",
     "vet-list", "vet-add", "vet-edit", "vet-delete",
     "scientist-list", "scientist-add", "scientist-edit", "scientist-delete",
-    "admin-list", "admin-add", "scientist-edit", "scientist-delete"
+    "admin-list", "admin-add", "admin-edit", "admin-delete"
 ]
 let BOList = []
 BOPages.forEach((page)=>{

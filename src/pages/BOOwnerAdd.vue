@@ -14,7 +14,7 @@
             :form="form"
             :fieldErrors="fieldErrors"
             @next="_next"
-            @cancel="_next"
+            @cancel="_cancel"
             slug="owner"
             action="add"
           >
