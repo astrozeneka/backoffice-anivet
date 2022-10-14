@@ -18,7 +18,7 @@
             slug="scientist"
             action="add"
           >
-            <h2>Add personal information</h2>
+            <h2>Add personal informations</h2>
             <p>Suspendisse potenti. Suspendisse rhoncus neque ut metus ornare molestie. Aenean lacinia et magna et sollicitudin.</p>
             <FormFieldLR
                 id="fName1"

@@ -25,7 +25,9 @@ let BOPages = ["login", "dashboard", "activity", "orders", "samples", "shipping"
     "breeder-list", "breeder-add", "breeder-edit","breeder-delete",
     "vet-list", "vet-add", "vet-edit", "vet-delete",
     "scientist-list", "scientist-add", "scientist-edit", "scientist-delete",
-    "admin-list", "admin-add", "admin-edit", "admin-delete"
+    "admin-list", "admin-add", "admin-edit", "admin-delete",
+
+    "validate-registration-list", "validate-registration"
 ]
 let BOList = []
 BOPages.forEach((page)=>{
@@ -116,8 +118,12 @@ module.exports = {
         "admin-list": "./src/js/admin-list", // Admin Crud
         "admin-add": "./src/js/admin-add",
         "admin-edit": "./src/js/admin-edit",
-        "admin-delete": "./src/js/admin-delete"
+        "admin-delete": "./src/js/admin-delete",
         // Should have one Crud page set for each editable view
+
+        // The registration as described by the activity flowchart for Anivet
+        "validate-registration-list": "./src/js/validate-registration-list.js",
+        "validate-registration": "./src/js/validate-registration.js"
     },
     output: {
         filename: "[name].js"

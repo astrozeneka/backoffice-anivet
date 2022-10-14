@@ -34,16 +34,16 @@
         <a class="nav-link" data-bs-toggle="collapse" href="#validationCollapse" role="button" aria-expanded="false" aria-controls="validationCollapse">Validation</a>
         <ul class="collapse show" id="validationCollapse">
           <li class="nav-item">
-            <a href="/validate-registration.html" class="nav-link">Registration</a>
+            <a href="/validate-registration-list.html" class="nav-link">Registration</a>
           </li>
           <li class="nav-item">
-            <a href="/validate-order.html" class="nav-link">Orders</a>
+            <a href="/validate-order-list.html" class="nav-link">Orders</a>
           </li>
           <li class="nav-item">
-            <a href="/validate-order.html" class="nav-link">Samples</a>
+            <a href="/validate-sample-list.html" class="nav-link">Samples</a>
           </li>
           <li class="nav-item">
-            <a href="/validate-receipt.html" class="nav-link">Receipt</a>
+            <a href="/validate-receipt-list.html" class="nav-link">Receipt</a>
           </li>
         </ul>
       </li>

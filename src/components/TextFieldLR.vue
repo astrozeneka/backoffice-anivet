@@ -6,19 +6,19 @@
       </label>
     </div>
     <div class="col-sm-6">
-      <input
-          :id="id"
-          v-model="model"
-          :type="type"
-          :class="'form-control form-control-sm ' +
+      <textarea
+        :id="id"
+        v-model="model"
+        :type="type"
+        :class="'form-control form-control-sm ' +
           (isInvalid?'is-invalid':'') + ' ' +
           (isValid?'is-valid':'') + ' ' +
           (fieldErrors!=''?'is-invalid':'')"
-          :required="required"
-          :placeholder="placeholder"
-          :aria-describedby="under ? `${id}Under` : null"
-          v-bind="$attrs"
-      />
+        :required="required"
+        :placeholder="placeholder"
+        :aria-describedby="under ? `${id}Under` : null"
+        v-bind="$attrs"
+      ></textarea>
       <div v-if="validFeedback" class="valid-feedback">
         {{ validFeedback }}
       </div>
@@ -35,7 +35,7 @@
 
 <script>
 export default {
-
+  name: "TextFieldLR",
   props: {
     id: {
       type: String,
@@ -56,15 +56,7 @@ export default {
     isValid: {type: Boolean, required: false, default: false},
     fieldErrors: {type: String, required: false, default: ""}
   },
-
-  data() {
-    return {
-    }
-  },
-
-
   emits: ['input'],
-
   computed: {
     model: {
       get() {
@@ -78,7 +70,6 @@ export default {
       return this.$t('misc.foo')
     },
   },
-
 }
 </script>
 <style scoped>
