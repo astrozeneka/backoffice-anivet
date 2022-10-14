@@ -138,7 +138,6 @@ import sessionstorage from "sessionstorage";
 export default {
   name: "BOValidateRegistration",
   components: {TextFieldLR, BackofficeAsideMenu, DataFormValidation, FormFieldLR},
-  // WE ARE HERE
   data(){
     return {
       form: {

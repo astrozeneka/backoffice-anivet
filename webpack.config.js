@@ -27,7 +27,10 @@ let BOPages = ["login", "dashboard", "activity", "orders", "samples", "shipping"
     "scientist-list", "scientist-add", "scientist-edit", "scientist-delete",
     "admin-list", "admin-add", "admin-edit", "admin-delete",
 
-    "validate-registration-list", "validate-registration"
+    "validate-registration-list", "validate-registration",
+    "validate-test-order-list", "validate-test-order",
+    "validate-test-sample-list", "validate-test-sample",
+    "validate-payment-receipt-list", "validate-payment-receipt"
 ]
 let BOList = []
 BOPages.forEach((page)=>{
@@ -99,7 +102,8 @@ module.exports = {
         "view-certification": "./src/js/view-certification",
         */
 
-        "owner-list": "./src/js/owner-list", // Owner CRUD
+        // New generation components begins here
+        /*"owner-list": "./src/js/owner-list", // Owner CRUD
         "owner-add": "./src/js/owner-add",
         "owner-edit": "./src/js/owner-edit",
         "owner-delete": "./src/js/owner-delete",
@@ -119,11 +123,17 @@ module.exports = {
         "admin-add": "./src/js/admin-add",
         "admin-edit": "./src/js/admin-edit",
         "admin-delete": "./src/js/admin-delete",
-        // Should have one Crud page set for each editable view
+        // Should have one Crud page set for each editable view*/
 
         // The registration as described by the activity flowchart for Anivet
         "validate-registration-list": "./src/js/validate-registration-list.js",
-        "validate-registration": "./src/js/validate-registration.js"
+        "validate-registration": "./src/js/validate-registration.js",
+        "validate-test-order-list": "./src/js/validate-test-order-list.js",
+        "validate-test-order": "./src/js/validate-test-order.js",
+        "validate-test-sample-list": "./src/js/validate-test-sample-list.js",
+        "validate-test-sample": "./src/js/validate-test-sample.js",
+        "validate-payment-receipt-list": "./src/js/validate-payment-receipt-list.js",
+        "validate-payment-receipt": "./src/js/validate-payment-receipt.js"
     },
     output: {
         filename: "[name].js"

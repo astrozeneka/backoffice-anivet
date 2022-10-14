@@ -53,7 +53,7 @@
           <tr>
             <th scope="col">Full name</th>
             <th scope="col">email</th>
-            <th scope="col">Registration Date</th>
+            <th scope="col">Registration date</th>
             <th scope="col">Status</th>
           </tr>
           </thead>

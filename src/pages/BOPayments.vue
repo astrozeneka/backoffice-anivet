@@ -33,7 +33,7 @@
                 </td>
                 <td>
                   <div class="btn-group" role="group" aria-label="">
-                    <a class="btn btn-sm btn-primary" :href="'/validate-receipt.html?id=' + receipt.id">
+                    <a class="btn btn-sm btn-primary" :href="'/validate-payment-receipt.html?id=' + receipt.id">
                       Verify
                     </a>
                   </div>
