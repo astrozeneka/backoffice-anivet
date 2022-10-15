@@ -7,7 +7,7 @@
         </div>
         <div class="col-md-9">
           <DataListValidation
-              title="PaymentReceipt"
+              title="Payment Receipt"
               description="Vivamus sed iaculis leo. Nullam nec libero quam. Fusce enim ipsum, cursus non interdum non, volutpat sed sapien."
               slug="paymentReceipt"
           >

@@ -45,7 +45,7 @@ export default {
     },
     label: { type: String, required: true },
     required: { type: Boolean, default: false },
-    value: { type: String, required: false },
+    value: { required: false },
     type: { type: String, default: 'text' },
     invalidFeedback: { type: String, default: null },
     under: { type: String, default: null },

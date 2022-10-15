@@ -7,7 +7,7 @@
         </div>
         <div class="col-md-9">
           <header>
-            <h1>Check and confirm user registration</h1>
+            <h1>Check and confirm payment receipt</h1>
           </header>
 
           <DataFormValidation
@@ -126,7 +126,7 @@ export default {
   },
   methods: {
     _next(){
-      sessionstorage.setItem("message", "Registration table has been updated")
+      sessionstorage.setItem("message", "Payment receipt table has been updated")
       sessionstorage.setItem("message-class", "success")
       window.location.href = "validate-payment-receipt-list.html"
     },
