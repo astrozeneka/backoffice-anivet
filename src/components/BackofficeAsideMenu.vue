@@ -17,16 +17,16 @@
         <a class="nav-link" data-bs-toggle="collapse" href="#newsFeedCollapse" role="button" aria-expanded="false" aria-controls="newsFeedCollapse">News feed</a>
         <ul class="collapse show" id="newsFeedCollapse">
           <li class="nav-item">
-            <a href="news-feed.html" class="nav-link">All</a>
+            <a href="feed-registration.html" class="nav-link">Registration</a>
           </li>
           <li class="nav-item">
-            <a href="registration-feed.html" class="nav-link">Registration</a>
+            <a href="feed-site.html" class="nav-link">Website</a>
           </li>
           <li class="nav-item">
-            <a href="test-order-feed.html" class="nav-link">Test order</a>
+            <a href="feed-process.html" class="nav-link">Process</a>
           </li>
           <li class="nav-item">
-            <a href="message-feed.html" class="nav-link">Message</a>
+            <a href="feed-message.html" class="nav-link">Messages</a>
           </li>
         </ul>
       </li>

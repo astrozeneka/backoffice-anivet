@@ -30,7 +30,12 @@ let BOPages = ["login", "dashboard", "activity", "orders", "samples", "shipping"
     "validate-registration-list", "validate-registration",
     "validate-test-order-list", "validate-test-order",
     "validate-test-sample-list", "validate-test-sample",
-    "validate-payment-receipt-list", "validate-payment-receipt"
+    "validate-payment-receipt-list", "validate-payment-receipt",
+
+    "feed-registration", "feed-registration-details",
+    "feed-site", "feed-site-details",
+    "feed-process", "feed-process-details",
+    "feed-message", "feed-message-details"
 ]
 let BOList = []
 BOPages.forEach((page)=>{
@@ -126,14 +131,29 @@ module.exports = {
         // Should have one Crud page set for each editable view*/
 
         // The registration as described by the activity flowchart for Anivet
-        "validate-registration-list": "./src/js/validate-registration-list.js",
+        /*"validate-registration-list": "./src/js/validate-registration-list.js",
         "validate-registration": "./src/js/validate-registration.js",
         "validate-test-order-list": "./src/js/validate-test-order-list.js",
         "validate-test-order": "./src/js/validate-test-order.js",
         "validate-test-sample-list": "./src/js/validate-test-sample-list.js",
         "validate-test-sample": "./src/js/validate-test-sample.js",
         "validate-payment-receipt-list": "./src/js/validate-payment-receipt-list.js",
-        "validate-payment-receipt": "./src/js/validate-payment-receipt.js"
+        "validate-payment-receipt": "./src/js/validate-payment-receipt.js"*/
+
+        // Feed pages
+        "feed-registration": "./src/js/feed-registration.js",
+        "feed-registration-details": "./src/js/feed-registration-details.js",
+        "feed-site": "./src/js/feed-site.js",
+        "feed-site-details": "./src/js/feed-site-details",
+        "feed-process": "./src/js/feed-process",
+        "feed-process-details": "./src/js/feed-process-details",
+        "feed-message": "./src/js/feed-message",
+        "feed-message-details": "./src/js/feed-message-details",
+
+        "validate-registration": "./src/js/validate-registration.js",
+        "validate-test-order-list": "./src/js/validate-test-order-list.js",
+        "owner-list": "./src/js/owner-list", // Owner CRUD
+        "owner-add": "./src/js/owner-add",
     },
     output: {
         filename: "[name].js"
