@@ -18,7 +18,7 @@ let beta_ajaxGet = (uri)=>{
             },
             error: (res)=>{
                 console.error(res)
-                resolve(null)
+                resolve(res)
             }
         })
     })

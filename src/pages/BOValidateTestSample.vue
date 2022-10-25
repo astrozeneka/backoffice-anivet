@@ -174,7 +174,7 @@ export default {
 @import '../scss/style.scss';
 </style>
 <style scoped lang="scss">
-@import '../scss/forms.css';
+@import '../scss/forms.scss';
 a{
   text-decoration: none!important;
 }

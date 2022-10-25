@@ -66,19 +66,22 @@
             <a href="admin-list.html" class="nav-link">Administrators</a>
           </li>
           <li class="nav-item">
-            <a href="document-list.html" class="nav-link">Documents</a>
+            <a href="sci-doc-list.html" class="nav-link">Documents</a>
           </li>
           <li class="nav-item">
-            <a href="parcel-list.html" class="nav-link">Parcels</a>
+            <a href="payment-receipt-list.html" class="nav-link">Payment Receipts</a>
           </li>
           <li class="nav-item">
-            <a href="order-list.html" class="nav-link">Test orders</a>
+            <a href="sample-parcel-list.html" class="nav-link">Parcels</a>
           </li>
           <li class="nav-item">
-            <a href="sample-list.html" class="nav-link">Test samples</a>
+            <a href="test-order-list.html" class="nav-link">Test orders</a>
           </li>
           <li class="nav-item">
-            <a href="result-list.html" class="nav-link">Test results</a>
+            <a href="test-sample-list.html" class="nav-link">Test samples</a>
+          </li>
+          <li class="nav-item">
+            <a href="test-result-list.html" class="nav-link">Test results</a>
           </li>
           <li class="nav-item">
             <a href="certification-list.html" class="nav-link">Certification</a>
