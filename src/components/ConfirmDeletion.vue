@@ -54,7 +54,7 @@ export default {
       let o = await beta_ajaxDelete(`/api/v1/data/${this.slug}/${idListSeparated.join(',')}`)
       console.log(o)
       if(o.affectedRows == idListSeparated.length){
-        sessionstorage.setItem("message", `${this.count} row${this.count>1?'s':''} has been deleted successfully`)
+        sessionstorage.setItem("message", `${this.messageData.count} row${this.messageData.count>1?'s':''} has been deleted successfully`)
         sessionstorage.setItem("message-class", "success")
         window.location.href = `${this.urlLikeSlug}-list.html`
       }else{

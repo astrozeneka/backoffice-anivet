@@ -39,7 +39,7 @@
             <h2>Upload the file</h2>
             <FileFieldLR
               id="fFile"
-              :field-errors="fieldErrors.content"
+              :field-errors="fieldErrors.file"
               type="file"
               placeholder=""
               label="Upload a new file"
@@ -79,7 +79,7 @@ export default {
       fieldErrors: {
         reference: "",
         type: "",
-        content: ""
+        file: ""
       }
     }
   },

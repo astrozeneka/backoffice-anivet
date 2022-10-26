@@ -34,9 +34,6 @@
                 }}
               </td>
               <td>
-                <!-- Download directly from the API Server -->
-                <!-- To do today -->
-
                 <a href="#" @click="downloadAttachedFile(entity, 'sciDoc')">
                   <i class="fa fa-arrow-down"></i>
                   {{

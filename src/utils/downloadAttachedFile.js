@@ -8,6 +8,7 @@ let downloadAttachedFile = async(entity, slug)=>{
     let downloadLink = document.createElement('a')
     downloadLink.href = data.file.content
     downloadLink.download = data.file.name
+    console.log(data.file)
     downloadLink.click()
 }
 export default downloadAttachedFile
