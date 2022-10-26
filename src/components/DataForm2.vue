@@ -1,6 +1,9 @@
 <template>
   <div>
     <header>
+      <Breadcrumb :labels="breadcrumbLabels"></Breadcrumb>
+    </header>
+    <header>
       <h1>{{title}}</h1>
     </header>
 
@@ -13,7 +16,7 @@
 
       <slot></slot>
       <div class="text-right pt-5">
-        <button class="btn text-primary btn-sm" @click.prevent="cancel">Cancel</button>
+        <button class="btn text-primary btn-sm" @click.prevent="to_cancel">Cancel</button>
         <RequestingButton2 className="btn-primary btn-sm" :requesting="requesting">
           <span v-if="action=='edit'">Update</span>
           <span v-else>Add</span>
@@ -29,10 +32,12 @@ import RequestingButton2 from "./RequestingButton2";
 import beta_ajaxPost from "../utils/beta_ajaxPost";
 import beta_ajaxPut from "../utils/beta_ajaxPut";
 import beta_ajaxGet from "../utils/beta_ajaxGet";
+import Breadcrumb from "./Breadcrumb";
 
 export default {
   name: "DataForm2",
   props: {
+    tableName: {type: String, default: ""},
     title: {type: String},
     slug: {type: String},
     "url-like-slug": {type: String},
@@ -42,10 +47,14 @@ export default {
     cancel: {type: Function},
     action: {type: String} // add or edit
   },
-  components: {RequestingButton2},
+  components: {RequestingButton2, Breadcrumb},
   data(){
     return {
-      requesting: false
+      requesting: false,
+      breadcrumbLabels: {
+        'Home': '/dash.js',
+        'Data': '#'
+      },
     }
   },
   methods: {
@@ -69,13 +78,14 @@ export default {
     },
     formSubmit(){
       this.requesting = true
-      let fs = document.querySelector('#fFile')
+      let fs = document.querySelector('input[type=file]')
       console.log(fs)
       if(fs.files && fs.files.length > 0) {
         ;(async () => { // Asynchronous script
           // Get base64 of uploaded file
-          let file = document.querySelector('#fFile').files[0]
+          let file = fs.files[0]
           this.form.file = await this.getBase64(file)
+          this.form.image = this.form.file // Should be resolved
           this.doFormSubmit(this.form)
           console.log("With file")
         })()
@@ -100,6 +110,9 @@ export default {
       }else{
         this.$emit('next')
       }
+    },
+    to_cancel(){
+      this.$emit('cancel')
     }
   },
   async created(){
@@ -109,6 +122,15 @@ export default {
       for (const key in this.form)
         this.form[key] = d[key]
     }
+
+
+    this.breadcrumbLabels = {
+      'Home': '/dashboard.js',
+      'Data': '#',
+    }
+    this.breadcrumbLabels[this.tableName] = `/${this.urlLikeSlug}-list.html`
+    let Action = this.action[0].toUpperCase() + this.action.substring(1)
+    this.breadcrumbLabels[Action] = '#'
   }
 }
 </script>

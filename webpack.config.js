@@ -155,7 +155,7 @@ module.exports = {
         "test-sample-list": "./src/js/test-sample-list.js",
         "test-sample-add": "./src/js/test-sample-add.js",
         "test-sample-edit": "./src/js/test-sample-edit.js",
-        "test-sample-delete": "./src/js/test-sample-edit.js",
+        "test-sample-delete": "./src/js/test-sample-delete.js",
         "test-result-list": "./src/js/test-result-list.js",
         "test-result-add": "./src/js/test-result-add.js",
         "test-result-edit": "./src/js/test-result-edit.js",

@@ -38,7 +38,7 @@
 
             <h2>Upload the file</h2>
             <p>Suspendisse potenti 5NT</p>
-            <FileFieldLR
+            <FileFieldLR2
                 id="fFile"
                 :field-errors="fieldErrors.content"
                 type="file"

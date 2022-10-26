@@ -71,7 +71,7 @@ export default {
       'Home': '/dashboard.js',
       'Data': '#',
     }
-    this.breadcrumbLabels[tn] = `/${this.urlLikeSlug}-list`
+    this.breadcrumbLabels[tn] = `/${this.urlLikeSlug}-list.html`
     this.breadcrumbLabels["Delete"] = '#'
     let list = (new URL(window.location.href)).searchParams.get("idList").split(",")
     this.messageData.count = list.length
