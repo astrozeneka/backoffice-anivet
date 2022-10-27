@@ -80,7 +80,7 @@ export default {
       this.requesting = true
       let fs = document.querySelector('input[type=file]')
       console.log(fs)
-      if(fs.files && fs.files.length > 0) {
+      if(fs && fs.files && fs.files.length > 0) {
         ;(async () => { // Asynchronous script
           // Get base64 of uploaded file
           let file = fs.files[0]

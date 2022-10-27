@@ -109,7 +109,7 @@ export default {
   },
   methods: {
     _next(){
-      sessionstorage.setItem("message", "A sample has been added successfully")
+      sessionstorage.setItem("message", "A sample has been updated successfully")
       sessionstorage.setItem("message-class", "success")
       window.location.href = "test-sample-list.html"
     },

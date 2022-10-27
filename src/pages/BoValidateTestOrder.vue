@@ -90,7 +90,7 @@
 
             <h2>Add message</h2>
             <TextFieldLR
-                id="fEmail"
+                id="fMessage"
                 v-model="form.validationNote.message"
                 type="text"
                 placeholder=""

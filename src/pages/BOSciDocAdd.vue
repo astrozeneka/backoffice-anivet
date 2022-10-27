@@ -30,7 +30,7 @@
             <FormFieldLR
               id="fType"
               v-model="form.type"
-              :field-errors="fieldErrors.reference"
+              :field-errors="fieldErrors.type"
               type="text"
               placeholder=""
               label="Document Type"
