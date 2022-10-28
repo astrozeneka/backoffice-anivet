@@ -7,11 +7,17 @@
         </div>
         <div class="col-md-9">
           <MessageBox></MessageBox>
-          <DataList3
+          <DataList5
               title="Test sample"
               description="Vivamus sed iaculis leo. Nullam nec libero quam. Fusce enim ipsum, cursus non interdum non, volutpat sed sapien."
               slug="testSample"
               url-like-slug="test-sample"
+              resource-url="/api/v1/testSample"
+              props-url="/api/v1/testSample/props"
+              :selected-array="[]"
+              :have-headers="true"
+              :have-search-bar="true"
+              :p-have-pagination="true"
           >
             <template v-slot:head>
               <th scope="col">Id</th>
@@ -31,7 +37,7 @@
               <td>{{entity.petSpecie}}</td>
               <td></td>
             </template>
-          </DataList3>
+          </DataList5>
         </div>
       </div>
     </div>
@@ -43,9 +49,10 @@ import DataList3 from "../components/DataList3";
 import MessageBox from "../components/MessageBox";
 import BackofficeAsideMenu from "../components/BackofficeAsideMenu";
 import downloadAttachedFile from "../utils/downloadAttachedFile";
+import DataList5 from "../components/DataList5";
 export default {
   name: "BOTestSampleList",
-  components: {MessageBox, BackofficeAsideMenu, DataList3},
+  components: {MessageBox, BackofficeAsideMenu, DataList3, DataList5},
   data(){
     return {}
   },

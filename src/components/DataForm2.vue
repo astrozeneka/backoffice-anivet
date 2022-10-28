@@ -45,7 +45,8 @@ export default {
     fieldErrors: {type: Object},
     next: {type: Function},
     cancel: {type: Function},
-    action: {type: String} // add or edit
+    beforeSubmit: {type: Function, default: ()=>true},
+    action: {type: String} // add or edit,
   },
   components: {RequestingButton2, Breadcrumb},
   data(){
@@ -77,6 +78,7 @@ export default {
       })
     },
     formSubmit(){
+      this.$emit('beforeSubmit')
       this.requesting = true
       let fs = document.querySelector('input[type=file]')
       console.log(fs)
