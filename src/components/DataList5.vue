@@ -129,15 +129,23 @@ export default {
         window.location.href = url
     },
     async refresh(){
-      if(this.pEntityList)
+      /*if(this.pEntityList)
         return // To be verified
-
-      this.entityList = []
+      */
+      /*this.entityList = []
       this.entityList = await beta_ajaxGet(`/api/v1/data/${this.slug}?offset=${this.viewOffset}&limit=${this.viewLimit}`)
       console.log("__")
       let a = await beta_ajaxGet(`/api/v1/data/${this.slug}/props`)
       this.totalCount = a.totalCount
       this.havePagination = true
+
+
+      if(this.propsUrl){
+        let a = await beta_ajaxGet(this.propsUrl)
+        this.totalCount = a.totalCount
+        this.paginationTotal = parseInt(this.totalCount / 10) + 1
+      }*/
+      this.entityList = await beta_ajaxGet(this.resourceUrl)
     },
     paginationGoTo(n){
       this.viewOffset = n*10

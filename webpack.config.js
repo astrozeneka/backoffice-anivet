@@ -115,7 +115,7 @@ module.exports = {
         */
 
         // New generation components begins here
-        /*"owner-list": "./src/js/owner-list", // Owner CRUD
+        "owner-list": "./src/js/owner-list", // Owner CRUD
         "owner-add": "./src/js/owner-add",
         "owner-edit": "./src/js/owner-edit",
         "owner-delete": "./src/js/owner-delete",
@@ -135,7 +135,7 @@ module.exports = {
         "admin-add": "./src/js/admin-add",
         "admin-edit": "./src/js/admin-edit",
         "admin-delete": "./src/js/admin-delete",
-        // Should have one Crud page set for each editable view*/
+        // Should have one Crud page set for each editable view
         "sci-doc-list": "./src/js/sci-doc-list.js",
         "sci-doc-add": "./src/js/sci-doc-add.js",
         "sci-doc-edit": "./src/js/sci-doc-edit.js",
@@ -166,24 +166,24 @@ module.exports = {
         "certification-delete": "./src/js/certification-delete.js",
 
         // The registration as described by the activity flowchart for Anivet
-        /*"validate-registration-list": "./src/js/validate-registration-list.js",
+        "validate-registration-list": "./src/js/validate-registration-list.js",
         "validate-registration": "./src/js/validate-registration.js",
         "validate-test-order-list": "./src/js/validate-test-order-list.js",
         "validate-test-order": "./src/js/validate-test-order.js",
         "validate-test-sample-list": "./src/js/validate-test-sample-list.js",
         "validate-test-sample": "./src/js/validate-test-sample.js",
         "validate-payment-receipt-list": "./src/js/validate-payment-receipt-list.js",
-        "validate-payment-receipt": "./src/js/validate-payment-receipt.js"*/
+        "validate-payment-receipt": "./src/js/validate-payment-receipt.js",
 
         // Feed pages
-        /*"feed-registration": "./src/js/feed-registration.js",
+        "feed-registration": "./src/js/feed-registration.js",
         "feed-registration-details": "./src/js/feed-registration-details.js",
         "feed-site": "./src/js/feed-site.js",
         "feed-site-details": "./src/js/feed-site-details",
         "feed-process": "./src/js/feed-process",
         "feed-process-details": "./src/js/feed-process-details",
         "feed-message": "./src/js/feed-message",
-        "feed-message-details": "./src/js/feed-message-details",*/
+        "feed-message-details": "./src/js/feed-message-details",
 
         "validate-registration": "./src/js/validate-registration.js",
         "validate-test-order-list": "./src/js/validate-test-order-list.js",
