@@ -42,7 +42,17 @@ let BOPages = ["login", "dashboard", "activity", "orders", "samples", "shipping"
     "feed-registration", "feed-registration-details",
     "feed-site", "feed-site-details",
     "feed-process", "feed-process-details",
-    "feed-message", "feed-message-details"
+    "feed-message", "feed-message-details",
+
+    "registration-account",
+    "registration-terms-and-conditions",
+    "registration-test-sample-list",
+    "registration-test-sample-add",
+    "registration-test-sample-edit",
+    "registration-test-sample-delete",
+    "registration-invoice",
+    "registration-payment",
+    "registration-links"
 ]
 let BOList = []
 BOPages.forEach((page)=>{
@@ -115,7 +125,7 @@ module.exports = {
         */
 
         // New generation components begins here
-        "owner-list": "./src/js/owner-list", // Owner CRUD
+        /*"owner-list": "./src/js/owner-list", // Owner CRUD
         "owner-add": "./src/js/owner-add",
         "owner-edit": "./src/js/owner-edit",
         "owner-delete": "./src/js/owner-delete",
@@ -135,7 +145,6 @@ module.exports = {
         "admin-add": "./src/js/admin-add",
         "admin-edit": "./src/js/admin-edit",
         "admin-delete": "./src/js/admin-delete",
-        // Should have one Crud page set for each editable view
         "sci-doc-list": "./src/js/sci-doc-list.js",
         "sci-doc-add": "./src/js/sci-doc-add.js",
         "sci-doc-edit": "./src/js/sci-doc-edit.js",
@@ -183,7 +192,17 @@ module.exports = {
         "feed-process": "./src/js/feed-process",
         "feed-process-details": "./src/js/feed-process-details",
         "feed-message": "./src/js/feed-message",
-        "feed-message-details": "./src/js/feed-message-details",
+        "feed-message-details": "./src/js/feed-message-details",*/
+
+        // Registration pages
+        "registration-account": "./src/js/registration-account",
+        "registration-terms-and-conditions": "./src/js/registration-terms-and-conditions",
+        "registration-test-sample-list": "./src/js/registration-test-sample-list",
+        "registration-test-sample-add": "./src/js/registration-test-sample-add",
+        "registration-test-sample-edit": "./src/js/registration-test-sample-edit",
+        "registration-test-sample-delete": "./src/js/registration-test-sample-delete",
+        "registration-test-sample-invoice": "./src/js/registration-invoice",
+        "registration-test-sample-links": "./src/js/registration-links",
 
         "validate-registration": "./src/js/validate-registration.js",
         "validate-test-order-list": "./src/js/validate-test-order-list.js",

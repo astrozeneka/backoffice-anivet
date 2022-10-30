@@ -18,7 +18,9 @@
           <a :class="'btn btn-light btn-sm btn-block ' + (selectedLength==0?'disabled':'')" href="#"
              @click="deleteClicked"
           >Delete {{selectedLength}} row{{selectedLength>1?'s':''}}</a>
-          <a class='btn btn-primary btn-sm btn-block' :href="`${urlLikeSlug}-add.html`">Add</a>
+
+          <a v-if="addLink" :href="addLink" class='btn btn-primary btn-sm btn-block'>Add</a>
+          <a v-else :href="`${urlLikeSlug}-add.html`" class='btn btn-primary btn-sm btn-block'>Add</a>
         </div>
       </div>
     </div>
@@ -89,7 +91,8 @@ export default {
     propsUrl: {type: String},
     pHavePagination: {type: Boolean, default: true},
     haveSearchBar: {type: Boolean, default: true},
-    customDeleteSelection: {type: Boolean, default: false}
+    customDeleteSelection: {type: Boolean, default: false},
+    addLink: {type: String, default: undefined}
   },
   data(){
     return {
