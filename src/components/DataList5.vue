@@ -92,7 +92,8 @@ export default {
     pHavePagination: {type: Boolean, default: true},
     haveSearchBar: {type: Boolean, default: true},
     customDeleteSelection: {type: Boolean, default: false},
-    addLink: {type: String, default: undefined}
+    addLink: {type: String, default: undefined},
+    load: {type: Function, default: (d)=>null}
   },
   data(){
     return {
@@ -169,7 +170,9 @@ export default {
       this.totalCount = a.totalCount
       this.paginationTotal = parseInt(this.totalCount / 10) + 1
     }
-    this.entityList = await beta_ajaxGet(this.resourceUrl)
+    let data = await beta_ajaxGet(this.resourceUrl)
+    this.entityList = data
+    this.$emit('load', data)
 
 
     /**

@@ -85,6 +85,7 @@ export default {
   components: {FormFieldLR, FileFieldLR2, BackofficeAsideMenu, DataForm2},
   data(){
     return {
+      testTypeList: [],
       form: {
         type: "",
         animal: "",

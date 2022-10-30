@@ -72,7 +72,7 @@
             <p>Praesent ac leo nec lorem eleifend tincidunt. Sed ac bibendum augue. Aenean aliquam felis vel rutrum molestie. Praesent in facilisis nulla, in rutrum diam. Nulla convallis metus sit amet elit accumsan ultrices.</p>
             <FormFieldLR
                 id="fAddress"
-                v-model="form.address1"
+                v-model="form.address.address1"
                 type="text"
                 placeholder=""
                 label="Address*"
@@ -80,7 +80,7 @@
             />
             <FormFieldLR
                 id="fCountry"
-                v-model="form.country"
+                v-model="form.address.country"
                 type="text"
                 placeholder=""
                 label="Country*"
@@ -88,7 +88,7 @@
             />
             <FormFieldLR
                 id="fChangwat"
-                v-model="form.changwat"
+                v-model="form.address.changwat"
                 type="text"
                 placeholder=""
                 label="Province"
@@ -96,7 +96,7 @@
             />
             <FormFieldLR
                 id="fAmphoe"
-                v-model="form.amphoe"
+                v-model="form.address.amphoe"
                 type="text"
                 placeholder=""
                 label="Amphoe"
@@ -104,7 +104,7 @@
             />
             <FormFieldLR
                 id="fTambon"
-                v-model="form.tambon"
+                v-model="form.address.tambon"
                 type="text"
                 placeholder=""
                 label="Sub-district"
@@ -112,7 +112,7 @@
             />
             <FormFieldLR
                 id="fPostcode"
-                v-model="form.postcode"
+                v-model="form.address.postcode"
                 type="text"
                 placeholder="19001"
                 label="Postcode*"
@@ -152,13 +152,14 @@ export default {
         name2: "",
         phone: "",
         email: "",
-
-        address1: "",
-        country: "",
-        changwat: "",
-        amphoe: "",
-        tambon: "",
-        postcode: "",
+        address: {
+          address1: "",
+          country: "",
+          changwat: "",
+          amphoe: "",
+          tambon: "",
+          postcode: "",
+        }
       },
       fieldErrors: {
         type: "",
@@ -166,13 +167,12 @@ export default {
         name2: "",
         phone: "",
         email: "",
-
         address1: "",
         country: "",
         changwat: "",
         amphoe: "",
         tambon: "",
-        postcode: ""
+        postcode: "",
       }
     }
   },

@@ -14,6 +14,15 @@
       <li class="">
         <a href="#" class="nav-link">My samples</a>
       </li>
+      <li class="">
+        <a href="#" class="nav-link">Invoice</a>
+      </li>
+      <li class="">
+        <a href="#" class="nav-link">Payment</a>
+      </li>
+      <li class="">
+        <a href="#" class="nav-link">Finish</a>
+      </li>
     </ul>
   </div>
 </template>

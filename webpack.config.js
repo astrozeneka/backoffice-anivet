@@ -201,8 +201,9 @@ module.exports = {
         "registration-test-sample-add": "./src/js/registration-test-sample-add",
         "registration-test-sample-edit": "./src/js/registration-test-sample-edit",
         "registration-test-sample-delete": "./src/js/registration-test-sample-delete",
-        "registration-test-sample-invoice": "./src/js/registration-invoice",
-        "registration-test-sample-links": "./src/js/registration-links",
+        "registration-invoice": "./src/js/registration-invoice",
+        "registration-payment": "./src/js/registration-payment",
+        "registration-links": "./src/js/registration-links",
 
         "validate-registration": "./src/js/validate-registration.js",
         "validate-test-order-list": "./src/js/validate-test-order-list.js",

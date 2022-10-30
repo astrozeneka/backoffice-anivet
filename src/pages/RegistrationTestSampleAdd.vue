@@ -18,6 +18,19 @@
             <p>Aenean lacinia et magna et sollicitudin.</p>
             <div class="row">
               <div class="col-sm-3 text-right mt-1">
+                <label for="fTestTypeId">Sample type</label>
+              </div>
+              <div class="col-sm-6">
+                <select id="fTestTypeId" v-model="form.testTypeId" class="form-select">
+                  <option selected value="">-- Selection option below --</option>
+                  <option v-for="testType in testTypeList" :value="testType.id">{{ testType.label }}</option>
+                </select>
+              </div>
+              <div class="col-sm-3"></div>
+            </div>
+            <!--
+            <div class="row">
+              <div class="col-sm-3 text-right mt-1">
                 <label for="fType">Sample type</label>
               </div>
               <div class="col-sm-6">
@@ -30,6 +43,7 @@
               </div>
               <div class="col-sm-3"></div>
             </div>
+            -->
 
             <h2>Add informations about your sample</h2>
             <p>Suspendisse potenti. Suspendisse rhoncus neque ut metus ornare molestie. Aenean lacinia et magna et sollicitudin.</p>
@@ -90,6 +104,7 @@ import RequestingButton2 from "../components/RequestingButton2";
 import beta_ajaxPost from "../utils/beta_ajaxPost";
 import FileFieldLR3 from "../components/FileFieldLR3";
 import sessionstorage from "sessionstorage";
+import beta_ajaxGet from "../utils/beta_ajaxGet";
 
 export default {
   name: "RegistrationTestSampleAdd",
@@ -97,8 +112,9 @@ export default {
   data(){
     return {
       requesting: false,
+      testTypeList: [],
       form: {
-        type: "",
+        testTypeId: "",
         animal: "",
         petSpecie: "",
         petId: "",
@@ -109,7 +125,7 @@ export default {
         }
       },
       fieldErrors: {
-        type: "",
+        testTypeId: "",
         animal: "",
         petSpecie: "",
         image: "" // From the file
@@ -169,6 +185,9 @@ export default {
         console.error("INTERNAL SERVER ERROR")
       }
     }
+  },
+  async created(){
+    this.testTypeList = await beta_ajaxGet(`/public/registration/test-type`)
   }
 }
 </script>

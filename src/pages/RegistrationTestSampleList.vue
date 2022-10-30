@@ -32,7 +32,7 @@
                   Sample #{{entity.id}}
                 </a>
               </td>
-              <td>{{entity.type}}</td>
+              <td>{{entity.testType.label}}</td>
               <td>{{entity.animal}}</td>
               <td>{{entity.petSpecie}}</td>
             </template>
